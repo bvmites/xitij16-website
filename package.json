@@ -1,0 +1,23 @@
+{
+  "name": "xitij16",
+  "version": "1.0.0",
+  "description": "xitij16 website",
+  "main": "index.html",
+  "scripts": {
+    "serve":"~/.npm-packages/bin/polymer serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-xitij/xitij16.git"
+  },
+  "keywords": [
+    "Xitij2016",
+    "Website"
+  ],
+  "author": "Team Xitij",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/team-xitij/xitij16/issues"
+  },
+  "homepage": "https://github.com/team-xitij/xitij16#readme"
+}
