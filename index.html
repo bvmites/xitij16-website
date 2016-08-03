@@ -12,8 +12,13 @@
   <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-card/paper-card.html">
 
-  <style is="custom-style" include="iron-flex iron-positioning">
+  <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
+    .content {
+      margin: 140px;
+    }
+
     paper-button.custom {
       --paper-icon-button-ink-color: white;
     }
@@ -23,11 +28,11 @@
       color: white;
     }
 
-    paper-button.pink {
-      color: white;
+    paper-button.white {
+      color: var(--paper-pink-a200);
     }
 
-    paper-button.pink[active] {
+    paper-button.white[active] {
       background-color: var(--paper-pink-a200);
       color: white;
     }
@@ -35,28 +40,39 @@
     a, a:active, a:visited {
       text-decoration: none;
     }
+
   </style>
 
 </head>
 <body class="fullbleed layout vertical">
 
-<paper-header-panel class="flex" mode="standard">
+<paper-header-panel class="flex" mode="cover">
 
   <paper-toolbar class="tall">
 
-    <span class="middle title">Xitij2016</span>
-
-    <span class="flex"></span>
-
-    <paper-button class="custom pink">Register</paper-button>
-    <a href="documents/Xitij%2016%20Rulebook.pdf" download>
-      <paper-button class="custom pink">Rules</paper-button>
-    </a>
-    <paper-button class="custom pink">Schedule</paper-button>
-    <paper-button class="custom pink">Committee</paper-button>
-    <paper-button class="custom pink">Contact Us</paper-button>
-
   </paper-toolbar>
+
+  <div class="layout horizontal content">
+    <paper-card class="flex" style="height: 800px">
+      <div class="card-content layout horizontal">
+        <span class="flex">Xitij2016</span>
+        <div class="self-end">
+          <paper-button class="custom white">Register</paper-button>
+          <a href="documents/Xitij%2016%20Rulebook.pdf" download>
+            <paper-button class="custom white">Rules</paper-button>
+          </a>
+          <a href="schedule.html">
+            <paper-button class="custom white">Schedule</paper-button>
+          </a>
+          <paper-button class="custom white">Committee</paper-button>
+          <paper-button class="custom white">Contact Us</paper-button>
+        </div>
+
+      </div>
+
+    </paper-card>
+
+  </div>
 
 </paper-header-panel>
 
