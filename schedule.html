@@ -17,7 +17,7 @@
   <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
-    .content {
+    .main-card {
       margin: 140px;
     }
 
@@ -52,11 +52,12 @@
       --paper-tabs-selection-bar-color: #3F51B5;
     }
 
-
   </style>
 
 </head>
 <body class="fullbleed layout vertical">
+
+<!-- Header Panel -->
 
 <paper-header-panel class="flex" mode="cover">
 
@@ -64,13 +65,23 @@
 
   </paper-toolbar>
 
-  <div class="layout horizontal content">
+  <!-- Main paper-card -->
+
+  <div class="layout horizontal main-card">
+
     <paper-card class="flex" style="height: 800px">
+
       <div class="card-content layout horizontal">
+
+        <!-- Title -->
+
         <a href="index.html" class="flex"><span>Xitij2016</span></a>
+
+        <!-- Menu -->
+
         <div class="self-end">
           <paper-button class="custom white">Register</paper-button>
-          <a href="documents/Xitij%2016%20Rulebook.pdf" download>
+          <a href="rule.html">
             <paper-button class="custom white">Rules</paper-button>
           </a>
           <a href="schedule.html">
@@ -86,7 +97,9 @@
 
       <br><br>
 
-      <div class="horizontal layout">
+      <!-- Schedule paper-tabs -->
+
+      <div class="horizontal layout center-justified">
         <paper-tabs selected="0" no-slide>
           <paper-tab class="flex">Day 1</paper-tab>
           <paper-tab class="flex">Day 2</paper-tab>
@@ -98,7 +111,6 @@
   </div>
 
 </paper-header-panel>
-
 
 </body>
 </html>

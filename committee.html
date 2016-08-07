@@ -17,7 +17,8 @@
   <link rel="import" href="bower_components/iron-icons/communication-icons.html">
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
-    .content {
+
+    .main-card {
       margin: 140px;
     }
 
@@ -43,13 +44,16 @@
       text-decoration: none;
     }
 
-    .contact-card {
+    .committiee-card {
       background-color: #00BCD4;
       margin: 10px;
     }
+
   </style>
 
 <body class="fullbleed layout vertical">
+
+<!-- Header Panel -->
 
 <paper-header-panel class="flex" mode="cover">
 
@@ -57,13 +61,23 @@
 
   </paper-toolbar>
 
-  <div class="layout horizontal content">
+  <!-- Main paper-card -->
+
+  <div class="layout horizontal main-card">
+
     <paper-card class="flex" style="height: 800px">
+
       <div class="card-content layout horizontal">
+
+        <!-- Title -->
+
         <a href="index.html" class="flex"><span>Xitij2016</span></a>
+
+        <!-- Menu -->
+
         <div class="self-end">
           <paper-button class="custom white">Register</paper-button>
-          <a href="documents/Xitij%2016%20Rulebook.pdf" download>
+          <a href="rule.html">
             <paper-button class="custom white">Rules</paper-button>
           </a>
           <a href="schedule.html">
@@ -79,8 +93,11 @@
 
       <br><br>
 
+      <!-- Committee member card -->
+
       <div class="layout horizontal wrap">
-        <paper-card heading="Accommodation" class="contact-card">
+
+        <paper-card heading="Accommodation" class="committiee-card">
           <div class="card-content">
             Proff. B.S. Patel
           </div>
@@ -89,6 +106,7 @@
             <span style="color: white;">987654321</span>
           </div>
         </paper-card>
+
       </div>
 
     </paper-card>
@@ -96,7 +114,6 @@
   </div>
 
 </paper-header-panel>
-
 
 </body>
 </html>

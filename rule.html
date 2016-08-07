@@ -1,8 +1,7 @@
-<!doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>xitij16</title>
+  <title>Xitij 16 Rule</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="/manifest.json">
@@ -13,9 +12,12 @@
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-card/paper-card.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
-
     .main-card {
       margin: 140px;
     }
@@ -41,6 +43,21 @@
     a, a:active, a:visited {
       text-decoration: none;
     }
+
+    paper-card .rulebook-card {
+      background-color: var(--paper-pink-a200);
+      color: white;
+    }
+
+    paper-tab {
+      color: #3F51B5;
+      --paper-tab-ink: var(--paper-pink-a200);
+    }
+
+    paper-tabs {
+      --paper-tabs-selection-bar-color: #3F51B5;
+    }
+
 
   </style>
 
@@ -85,6 +102,34 @@
 
       </div>
 
+      <br><br>
+
+      <div class="layout horizontal center-justified">
+        <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
+          <paper-card class="rulebook-card" style="width: 1000px;">
+            <div class="card-content horizontal layout">
+              <span class="flex" style="font-size: 23px;"><strong>Find the whole Rulebook here.</strong></span>
+              <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+            </div>
+          </paper-card>
+        </a>
+      </div>
+
+      <br><br>
+
+      <!-- Categories paper-tabs -->
+
+      <div class="horizontal layout center-justified">
+
+        <paper-tabs selected="0" no-slide>
+          <paper-tab class="flex"><span style="font-size: 16px;">Music</span></paper-tab>
+          <paper-tab class="flex"><span style="font-size: 16px;">Dance</span></paper-tab>
+          <paper-tab class="flex"><span style="font-size: 16px;">Literature</span></paper-tab>
+          <paper-tab class="flex"><span style="font-size: 16px;">Theatre</span></paper-tab>
+          <paper-tab class="flex"><span style="font-size: 16px;">Fine Arts</span></paper-tab>
+        </paper-tabs>
+
+      </div>
     </paper-card>
 
   </div>
