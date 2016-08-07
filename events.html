@@ -14,8 +14,6 @@
   <link rel="import" href="bower_components/paper-card/paper-card.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
-  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
-  <link rel="import" href="bower_components/iron-pages/iron-pages.html">
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
     .main-card {
@@ -47,17 +45,14 @@
     paper-card .rulebook-card {
       background-color: var(--paper-pink-a200);
       color: white;
+      width: 1000px;
+      font-size: 23px;
     }
 
-    paper-tab {
-      color: #3F51B5;
-      --paper-tab-ink: var(--paper-pink-a200);
+    paper-card .category-rulebook-card {
+      background-color: #3F51B5;
+      color: white;
     }
-
-    paper-tabs {
-      --paper-tabs-selection-bar-color: #3F51B5;
-    }
-
 
   </style>
 
@@ -104,42 +99,56 @@
 
       <br><br>
 
-      <div class="layout horizontal center-justified">
+      <!-- Rulebook -->
+
+      <div class="layout vertical center">
+
         <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
-          <paper-card class="rulebook-card" style="width: 1000px;">
+          <paper-card class="rulebook-card">
             <div class="card-content horizontal layout">
-              <span class="flex" style="font-size: 23px;"><strong>Find the whole Rulebook here.</strong></span>
+              <span class="flex">Click here to download Rulebook.</span>
               <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
             </div>
           </paper-card>
         </a>
+
       </div>
 
       <br><br>
 
-      <!-- Categories paper-tabs -->
+      <!-- Category wise Rulebooks -->
 
-      <div class="horizontal layout center-justified">
+      <div class="layout horizontal center-justified">
 
-        <paper-tabs id="category-tabs" selected="0" no-slide>
-          <paper-tab class="flex"><span style="font-size: 16px;">Music</span></paper-tab>
-          <paper-tab class="flex"><span style="font-size: 16px;">Dance</span></paper-tab>
-          <paper-tab class="flex"><span style="font-size: 16px;">Literature</span></paper-tab>
-          <paper-tab class="flex"><span style="font-size: 16px;">Theatre</span></paper-tab>
-          <paper-tab class="flex"><span style="font-size: 16px;">Fine Arts</span></paper-tab>
-        </paper-tabs>
+        <paper-card heading="Music" image="documents/Logo.png" class="horizontal layout">
+          <div class="self-center">
+            <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+          </div>
+        </paper-card>
 
-      </div>
+        <paper-card heading="Dance" image="documents/Logo.png" class="horizontal layout">
+          <div class="self-center">
+            <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+          </div>
+        </paper-card>
 
-      <div class="vertical layout center">
+        <paper-card heading="Literature" image="documents/Logo.png" class="horizontal layout">
+          <div class="self-center">
+            <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+          </div>
+        </paper-card>
 
-        <iron-pages id="category-pages" selected="0">
-          <div>Music Page</div>
-          <div>Dance Page</div>
-          <div>Literature Page</div>
-          <div>Theater Page</div>
-          <div>Fine Arts Page</div>
-        </iron-pages>
+        <paper-card heading="Theatre" image="documents/Logo.png" class="horizontal layout">
+          <div class="self-center">
+            <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+          </div>
+        </paper-card>
+
+        <paper-card heading="Arts" image="documents/Logo.png" class="horizontal layout">
+          <div class="self-center">
+            <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+          </div>
+        </paper-card>
 
       </div>
 
@@ -148,17 +157,6 @@
   </div>
 
 </paper-header-panel>
-
-<script>
-
-  var categoryTabs = document.getElementById('category-tabs'),
-      categoryPages = document.getElementById('category-pages');
-
-  categoryTabs.addEventListener('iron-select', function (event) {
-    categoryPages.select(event.target.selected)
-  })
-
-</script>
 
 </body>
 </html>
