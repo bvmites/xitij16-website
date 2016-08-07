@@ -15,7 +15,7 @@
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
-  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="bower_components/iron-pages/iron-pages.html">
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
     .main-card {
@@ -121,7 +121,7 @@
 
       <div class="horizontal layout center-justified">
 
-        <paper-tabs selected="0" no-slide>
+        <paper-tabs id="category-tabs" selected="0" no-slide>
           <paper-tab class="flex"><span style="font-size: 16px;">Music</span></paper-tab>
           <paper-tab class="flex"><span style="font-size: 16px;">Dance</span></paper-tab>
           <paper-tab class="flex"><span style="font-size: 16px;">Literature</span></paper-tab>
@@ -130,11 +130,35 @@
         </paper-tabs>
 
       </div>
+
+      <div class="vertical layout center">
+
+        <iron-pages id="category-pages" selected="0">
+          <div>Music Page</div>
+          <div>Dance Page</div>
+          <div>Literature Page</div>
+          <div>Theater Page</div>
+          <div>Fine Arts Page</div>
+        </iron-pages>
+
+      </div>
+
     </paper-card>
 
   </div>
 
 </paper-header-panel>
+
+<script>
+
+  var categoryTabs = document.getElementById('category-tabs'),
+      categoryPages = document.getElementById('category-pages');
+
+  categoryTabs.addEventListener('iron-select', function (event) {
+    categoryPages.select(event.target.selected)
+  })
+
+</script>
 
 </body>
 </html>

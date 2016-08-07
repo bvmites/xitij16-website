@@ -14,7 +14,7 @@
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-card/paper-card.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
-  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="bower_components/iron-pages/iron-pages.html">
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
     .main-card {
@@ -100,17 +100,41 @@
       <!-- Schedule paper-tabs -->
 
       <div class="horizontal layout center-justified">
-        <paper-tabs selected="0" no-slide>
+
+        <paper-tabs id="schedule-tabs" selected="0" no-slide>
           <paper-tab class="flex">Day 1</paper-tab>
           <paper-tab class="flex">Day 2</paper-tab>
           <paper-tab class="flex">Day 3</paper-tab>
         </paper-tabs>
+
       </div>
+
+      <div class="vertical layout center">
+
+        <iron-pages id="schedule-pages" selected="0">
+          <div>Day1</div>
+          <div>Day2</div>
+          <div>Day3</div>
+        </iron-pages>
+
+      </div>
+
     </paper-card>
 
   </div>
 
 </paper-header-panel>
+
+<script>
+
+  var scheduleTabs = document.getElementById('schedule-tabs'),
+      schedulePages = document.getElementById('schedule-pages');
+
+  scheduleTabs.addEventListener('iron-select', function (event) {
+    schedulePages.select(event.target.selected);
+  })
+
+</script>
 
 </body>
 </html>
