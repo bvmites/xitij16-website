@@ -9,87 +9,208 @@
   <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="bower_components/polymer/polymer.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+  <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
   <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-card/paper-card.html">
 
-  <style is="custom-style" include="iron-flex iron-positioning iron-flex-reverse iron-flex-alignment iron-flex-factors">
+  <style is="custom-style" include="iron-flex iron-positioning iron-flex-alignment">
 
-    .main-card {
-      margin: 140px;
-    }
-
-    paper-button.custom {
-      --paper-icon-button-ink-color: white;
-    }
-
-    paper-button.custom:hover {
-      background-color: var(--paper-pink-a200);
-      color: white;
-    }
-
-    paper-button.white {
-      color: var(--paper-pink-a200);
-    }
-
-    paper-button.white[active] {
-      background-color: var(--paper-pink-a200);
-      color: white;
+    paper-drawer-panel {
+      --paper-drawer-panel-scrim: {
+        opacity: 0.8;
+      };
     }
 
     a, a:active, a:visited {
       text-decoration: none;
     }
 
+    paper-tab {
+      color: #3F51B5;
+      --paper-tab-ink: var(--paper-pink-a200);
+    }
+
+    paper-tabs {
+      --paper-tabs-selection-bar-color: #3F51B5;
+    }
+
+    paper-card.rulebook-card {
+      background-color: var(--paper-pink-a200);
+      color: white;
+      font-size: 23px;
+    }
+
+
   </style>
 
 </head>
 <body class="fullbleed layout vertical">
 
-<!-- Header Panel -->
+<!-- Drawer Panel -->
 
-<paper-header-panel class="flex" mode="cover">
+<paper-drawer-panel id="paperDrawerPanel" force-narrow>
 
-  <paper-toolbar class="tall">
+  <!-- Drawer Content -->
 
-  </paper-toolbar>
+  <paper-header-panel drawer>
 
-  <!-- Main paper-card -->
+    <!-- Logo -->
 
-  <div class="layout horizontal main-card">
+    <paper-toolbar><img src="documents/Logo.png" alt="Logo"></paper-toolbar>
 
-    <paper-card class="flex" style="height: 800px">
+    <br>
 
-      <div class="card-content layout horizontal">
+    <!-- paper-menu -->
 
-        <!-- Title -->
+    <paper-menu id="paperMenu" selected="0">
 
-        <a href="index.html" class="flex"><span>Xitij2016</span></a>
+      <paper-item>Home</paper-item>
+      <paper-item>Registration</paper-item>
+      <paper-item>Schedule</paper-item>
+      <paper-item>Events</paper-item>
+      <paper-item>Committee</paper-item>
+      <paper-item>Contact Us</paper-item>
 
-        <!-- Menu -->
+    </paper-menu>
 
-        <div class="self-end">
-          <paper-button class="custom white">Register</paper-button>
-          <a href="events.html">
-            <paper-button class="custom white">Events</paper-button>
+  </paper-header-panel>
+
+  <!-- Main Content -->
+
+  <paper-header-panel main mode="waterfall-tall">
+
+    <paper-toolbar>
+
+      <!-- Toggle Menu button -->
+
+      <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+
+      <!-- Logo -->
+
+      <img src="documents/Logo.png" alt="Logo">
+
+    </paper-toolbar>
+
+    <!-- Pages -->
+
+    <iron-pages selected="0" id="ironPages">
+
+      <!-- Home -->
+
+      <div>Home</div>
+
+      <!-- Registration -->
+
+      <div>Registration</div>
+
+      <!-- Schedule -->
+
+      <div class="vertical layout center">
+
+        <paper-tabs id="scheduleTabs" selected="0" no-slide>
+          <paper-tab>Day 1</paper-tab>
+          <paper-tab>Day 2</paper-tab>
+          <paper-tab>Day 3</paper-tab>
+        </paper-tabs>
+
+        <iron-pages id="schedulePages" selected="0">
+          <div>Day1</div>
+          <div>Day2</div>
+          <div>Day3</div>
+        </iron-pages>
+
+      </div>
+
+      <!-- Events -->
+
+      <div>
+
+        <br><br>
+
+        <!-- Rulebook -->
+
+        <div class="layout vertical center">
+
+          <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
+            <paper-card class="rulebook-card flex">
+              <div class="card-content horizontal layout">
+                <span class="flex">Click here to download Rulebook.</span>
+                <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
+              </div>
+            </paper-card>
           </a>
-          <a href="schedule.html">
-            <paper-button class="custom white">Schedule</paper-button>
-          </a>
-          <a href="committee.html">
-            <paper-button class="custom white">Committee</paper-button>
-          </a>
-          <paper-button class="custom white">Contact Us</paper-button>
+
+        </div>
+
+        <br><br>
+
+        <!-- Category wise Rulebooks -->
+
+        <div class="layout horizontal around-justified wrap">
+
+          <paper-card image="./documents/Logo.png">
+            <div class="card-content">Music</div>
+          </paper-card>
+
+          <paper-card image="./documents/Logo.png">
+            <div class="card-content">Dance</div>
+          </paper-card>
+
+          <paper-card image="./documents/Logo.png">
+            <div class="card-content">Literature</div>
+          </paper-card>
+
+          <paper-card image="./documents/Logo.png">
+            <div class="card-content">Theatre</div>
+          </paper-card>
+
+          <paper-card image="./documents/Logo.png">
+            <div class="card-content">Fine Arts</div>
+          </paper-card>
+
         </div>
 
       </div>
 
-    </paper-card>
+      <!-- Committee -->
 
-  </div>
+      <div>Committee</div>
 
-</paper-header-panel>
+      <!-- Contact Us -->
+
+      <div>Contact Us</div>
+
+    </iron-pages>
+
+  </paper-header-panel>
+
+</paper-drawer-panel>
+
+<script>
+
+  var menu = document.getElementById('paperMenu'),
+      page = document.getElementById('ironPages'),
+      drawer = document.getElementById('paperDrawerPanel'),
+      scheduleTabs = document.getElementById('scheduleTabs'),
+      schedulePages = document.getElementById('schedulePages');
+
+  menu.addEventListener('iron-select', function (event) {
+    page.select(event.target.selected);
+    drawer.closeDrawer();
+  });
+
+  scheduleTabs.addEventListener('iron-select', function (event) {
+    schedulePages.select(event.target.selected);
+  });
+
+</script>
 
 </body>
 </html>
