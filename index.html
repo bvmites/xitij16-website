@@ -47,6 +47,19 @@
       font-size: 23px;
     }
 
+    /*  Header Background */
+
+    .mainToolbar {
+      background-image: url(documents/headerBackground.jpg);
+      height: 40vh;
+      opacity: 0.8;
+    }
+
+    .drawerToolbar {
+      background-color: #3392AB;
+    }
+
+    /* Header Background end */
 
   </style>
 
@@ -63,7 +76,11 @@
 
     <!-- Logo -->
 
-    <paper-toolbar><img src="documents/Logo.png" alt="Logo"></paper-toolbar>
+    <paper-toolbar class="drawerToolbar">
+
+      <img src="documents/logo.png" alt="Logo">
+
+    </paper-toolbar>
 
     <br>
 
@@ -86,7 +103,7 @@
 
   <paper-header-panel main mode="waterfall-tall">
 
-    <paper-toolbar>
+    <paper-toolbar class="mainToolbar">
 
       <!-- Toggle Menu button -->
 
@@ -94,7 +111,7 @@
 
       <!-- Logo -->
 
-      <img src="documents/Logo.png" alt="Logo">
+      <img src="documents/logo.png" alt="Logo">
 
     </paper-toolbar>
 
