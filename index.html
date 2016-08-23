@@ -51,7 +51,6 @@
 
     .mainToolbar {
       background-image: url(documents/headerBackground.jpg);
-      height: 35vh;
     }
 
     .drawerToolbar {
@@ -91,7 +90,7 @@
 
   <!-- Drawer Content -->
 
-  <paper-header-panel drawer>
+  <paper-header-panel drawer class="flex">
 
     <!-- Logo -->
 
@@ -120,7 +119,7 @@
 
   <!-- Main Content -->
 
-  <paper-header-panel main mode="waterfall-tall">
+  <paper-header-panel main mode="waterfall-tall" class="flex">
 
     <paper-toolbar class="mainToolbar">
 
@@ -148,7 +147,8 @@
 
           <br>
           <div class="newsCardHeading">
-            News <hr>
+            News
+            <hr>
           </div>
 
           <div class="newsCardContent horizontal layout around-justified">
