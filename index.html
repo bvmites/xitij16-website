@@ -9,12 +9,14 @@
   <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="bower_components/polymer/polymer.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+  <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
   <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
   <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
@@ -22,69 +24,77 @@
 
   <style is="custom-style" include="iron-flex iron-positioning iron-flex-alignment">
 
-    paper-drawer-panel {
-      --paper-drawer-panel-scrim: {
-        opacity: 0.8;
-      };
+    /* Theme Settings */
+
+    * {
+      --theme-primary-color: var(--paper-deep-purple-400);
+      --theme-secondary-color: var(--paper-red-200);
+      --theme-background-color: var(--paper-deep-purple-50);
+      --event-card-margin: 10px 0;
+      --rulebook-button-margin: 15px 0;
+      --page-margin: 20px 0;
     }
 
     a, a:active, a:visited {
       text-decoration: none;
+      display: block;
     }
 
-    paper-tab {
-      color: #3F51B5;
-      --paper-tab-ink: var(--paper-pink-a200);
+    .primary-text {
+      color: var(--theme-primary-color);
     }
 
-    paper-tabs {
-      --paper-tabs-selection-bar-color: #3F51B5;
+    paper-drawer-panel {
+      --paper-drawer-panel-scrim-opacity: 0.8;
     }
 
-    paper-card.rulebookCard {
-      background-color: #3392AB;
-      color: white;
-      font-size: 23px;
+    paper-toolbar {
+      background-color: var(--theme-primary-color);
     }
 
-    /*  Header Background */
-
-    .mainToolbar {
-      background-image: url(documents/headerBackground.jpg);
+    .page {
+      margin: var(--page-margin);
     }
 
-    .drawerToolbar {
-      background-color: #3392AB;
+    .rulebook {
+      margin: var(--rulebook-button-margin);
     }
 
-    /* Header Background end */
-
-    /* News Card */
-
-    .newsCard {
-      width: 80vw;
-      color: white;
-      background-color: #3392AB;
-      opacity: 0.8;
+    .event-card {
+      --paper-card-header-image: {
+        width: 250px;
+        height: 225px;
+      };
+      --paper-card-header: {
+        @apply(--layout-vertical);
+      };
+      --paper-card-header-text: {
+        @apply(--layout-self-center);
+        color: var(--theme-primary-color);
+      };
+      margin: var(--event-card-margin);
     }
 
-    paper-card .newsCardHeading {
-      font-size: 25px;
-      text-align: center;
+    #paperMenu paper-item {
+      cursor: pointer;
     }
 
-    paper-card .newsCardContent {
-      font-size: 20px;
+    paper-header-panel {
+      background-color: var(--theme-background-color);
     }
 
-    /* News Card end */
+    @keyframes fade-menu-item {
+      0% {
+        background-color: white;
+      }
+      100% {
+        background-color: var(--theme-secondary-color);
+      }
+    }
 
-    .eventCard {
-      height: 250px;
-      width: 250px;
-      font-size: 25px;
-      opacity: 0.9;
-      text-align: center;
+    #paperMenu paper-item:not(.iron-selected):hover {
+      background-color: var(--theme-secondary-color);
+      animation: fade-menu-item ease 1s;
     }
 
   </style>
@@ -100,17 +110,16 @@
 
   <paper-header-panel drawer class="flex">
 
-    <!-- Logo -->
+    <paper-toolbar class="drawer-toolbar">
 
-    <paper-toolbar class="drawerToolbar">
+      <!-- Logo Todo: Add Logo Image. -->
 
-      <img src="documents/logo.png" alt="Logo">
+      <span style="font-family: Roboto, sans-serif">Xitij 16</span>
 
     </paper-toolbar>
 
-    <br>
 
-    <!-- paper-menu -->
+    <!-- Side Menu -->
 
     <paper-menu id="paperMenu" selected="0">
 
@@ -128,58 +137,31 @@
 
   <paper-header-panel main mode="waterfall-tall" class="flex">
 
-    <paper-toolbar class="mainToolbar">
+    <paper-toolbar class="main-toolbar">
 
       <!-- Toggle Menu button -->
 
       <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
 
-      <!-- Logo -->
+      <!-- Logo Todo: Add Logo Image. -->
 
-      <img src="documents/logo.png" alt="Logo">
+      <span style="font-family: Roboto, sans-serif">Xitij 16</span>
 
     </paper-toolbar>
 
     <!-- Pages -->
 
-    <br><br>
-
     <iron-pages selected="0" id="ironPages">
 
-      <!-- Home -->
+      <!-- Home Todo: Add content. -->
 
-      <div class="horizontal layout around-justified">
+      <div>Home</div>
 
-        <paper-card class="newsCard">
-
-          <br>
-          <div class="newsCardHeading">
-            News
-            <hr>
-          </div>
-
-          <div class="newsCardContent horizontal layout around-justified">
-            Only one entry per Institution is allowed. Duration of performance- 10 min. <br>
-            Time for stage/ Instruments setting is maximum 5 minutes. <br>
-            Maximum number of accompanists is two. <br>
-            Participants must bring their own instruments, Casio not allowed. <br>
-            Instruments of western origin adopted to the India Raga system are allowed. <br>
-            Item can be presented in either Hindustani or Karnatk style. <br>
-            Judgment will be based on the qualities like, swara, tal, selection of raga,
-            composition and general impression.
-          </div>
-
-          <br>
-
-        </paper-card>
-
-      </div>
-
-      <!-- Registration -->
+      <!-- Registration Todo: Add content. -->
 
       <div>Registration</div>
 
-      <!-- Schedule -->
+      <!-- Schedule Todo: Add content. -->
 
       <div class="vertical layout center">
 
@@ -199,54 +181,40 @@
 
       <!-- Events -->
 
-      <div>
+      <div class="page">
 
-        <!-- Rulebook -->
+        <!-- Category wise Rulebooks. Todo : Add PDF links and appropriate icons. -->
 
-        <div class="layout vertical center">
+        <div class="layout horizontal around-justified wrap primary-text">
 
-          <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
-            <paper-card class="rulebookCard flex">
-              <div class="card-content horizontal layout">
-                <span class="flex">Click here to download Rulebook.</span>
-                <paper-icon-button icon="icons:arrow-downward"></paper-icon-button>
-              </div>
-            </paper-card>
-          </a>
+          <paper-card image="./documents/dance.gif" class="event-card" heading="Music"></paper-card>
+
+          <paper-card image="./documents/dance.gif" class="event-card" heading="Dance"></paper-card>
+
+          <paper-card image="./documents/fineArts.jpg" class="event-card" heading="Literature"></paper-card>
+
+          <paper-card image="./documents/fineArts.jpg" class="event-card" heading="Theatre"></paper-card>
+
+          <paper-card image="./documents/fineArts.jpg" class="event-card" heading="Fine Arts"></paper-card>
 
         </div>
 
-        <br><br>
+        <!-- Rulebook -->
 
-        <!-- Category wise Rulebooks -->
+        <div class="layout vertical center rulebook">
 
-        <div class="layout horizontal around-justified wrap">
-
-          <paper-card image="./documents/dance.gif" class="eventCard">
-            <div class="card-content">Music</div>
-          </paper-card>
-
-          <paper-card image="./documents/dance.gif" class="eventCard">
-            <div class="card-content">Dance</div>
-          </paper-card>
-
-          <paper-card image="./documents/fineArts.jpg" class="eventCard">
-            <div class="card-content">Literature</div>
-          </paper-card>
-
-          <paper-card image="./documents/fineArts.jpg" class="eventCard">
-            <div class="card-content">Theatre</div>
-          </paper-card>
-
-          <paper-card image="./documents/fineArts.jpg" class="eventCard">
-            <div class="card-content">Fine Arts</div>
-          </paper-card>
+          <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
+            <paper-button raised class="primary-text">
+              <iron-icon icon="file-download"></iron-icon>
+              Download Rulebook
+            </paper-button>
+          </a>
 
         </div>
 
       </div>
 
-      <!-- Contact Us -->
+      <!-- Todo : Contact Us -->
 
       <div>Contact Us</div>
 
