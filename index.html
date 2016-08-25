@@ -10,9 +10,10 @@
   <link rel="import" href="bower_components/polymer/polymer.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
-  <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
-  <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
-  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
+  <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
+  <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
   <link rel="import" href="bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/iron-pages/iron-pages.html">
@@ -27,40 +28,105 @@
     /* Theme Settings */
 
     * {
-      --theme-primary-color: var(--paper-deep-purple-400);
-      --theme-secondary-color: var(--paper-red-200);
-      --theme-background-color: var(--paper-deep-purple-50);
+      --primary-color: var(--paper-deep-purple-400);
+      --secondary-color: var(--paper-red-200);
+      --background-color: var(--paper-deep-purple-50);
       --event-card-margin: 10px 0;
       --rulebook-button-margin: 15px 0;
       --page-margin: 20px 0;
     }
+
+    /* Links */
 
     a, a:active, a:visited {
       text-decoration: none;
       display: block;
     }
 
+    /* Theme Font Setting */
+
     .primary-text {
-      color: var(--theme-primary-color);
+      color: var(--primary-color);
     }
 
-    paper-drawer-panel {
-      --paper-drawer-panel-scrim-opacity: 0.8;
+    /* Body */
+
+    body {
+      font-family: Roboto, serif;
+      background-color: var(--background-color);
     }
 
-    paper-toolbar {
-      background-color: var(--theme-primary-color);
+    /* Header */
+
+    app-header {
+      height: 212px;
+      background-color: var(--primary-color);
+      --app-header-background-front-layer: {
+        background: url(documents/backgroundWithXITIJ16.jpg) no-repeat center;
+        background-size: cover;
+      };
     }
+
+    [condensed-title] {
+      font-weight: lighter;
+      margin-left: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+    }
+
+    /*Drawer */
+
+    app-drawer {
+      --app-drawer-scrim-opacity: 0.8;
+      --app-drawer-content-container: {
+        background-color: var(--background-color);
+      }
+    }
+
+    #drawer app-header {
+      height: 75px;
+      background-color: var(--primary-color);
+    }
+
+    /* Menu */
+
+    #paperMenu {
+      background-color: var(--background-color);
+    }
+
+    #paperMenu paper-item {
+      cursor: pointer;
+      background-color: var(--background-color);
+    }
+
+    #paperMenu paper-item:not(.iron-selected):hover {
+      background-color: var(--secondary-color);
+      animation: fade-menu-item ease 1s;
+    }
+
+    @keyframes fade-menu-item {
+      0% {
+        background-color: var(--background-color);
+      }
+      100% {
+        background-color: var(--secondary-color);
+      }
+    }
+
+    /* Iron Pages */
 
     .page {
       margin: var(--page-margin);
     }
 
+    /* Event Page */
+
     .rulebook {
       margin: var(--rulebook-button-margin);
     }
 
-    .event-card {
+    .eventCard {
       --paper-card-header-image: {
         width: 250px;
         height: 225px;
@@ -70,31 +136,29 @@
       };
       --paper-card-header-text: {
         @apply(--layout-self-center);
-        color: var(--theme-primary-color);
+        color: var(--primary-color);
       };
       margin: var(--event-card-margin);
     }
 
-    #paperMenu paper-item {
-      cursor: pointer;
-    }
+    /* Media Queries */
 
-    paper-header-panel {
-      background-color: var(--theme-background-color);
-    }
-
-    @keyframes fade-menu-item {
-      0% {
-        background-color: white;
-      }
-      100% {
-        background-color: var(--theme-secondary-color);
+    @media (max-width: 400px) {
+      app-header {
+        height: 108px;
       }
     }
 
-    #paperMenu paper-item:not(.iron-selected):hover {
-      background-color: var(--theme-secondary-color);
-      animation: fade-menu-item ease 1s;
+    @media (max-width: 639px) {
+      [main-title] {
+        margin-left: 50px;
+        font-size: 30px;
+      }
+    }
+
+    paper-icon-button {
+      --paper-icon-button-ink-color: white;
+      color: white;
     }
 
   </style>
@@ -102,140 +166,142 @@
 </head>
 <body class="fullbleed layout vertical">
 
-<!-- Drawer Panel -->
+<!-- Header Todo: Put logo and background-image separately. And make the header sticky. -->
 
-<paper-drawer-panel id="paperDrawerPanel" force-narrow>
+<app-header condenses reveals effects="waterfall resize-title blend-background parallax-background">
 
-  <!-- Drawer Content -->
+  <app-toolbar>
 
-  <paper-header-panel drawer class="flex">
+    <paper-icon-button icon="menu" id="menuIcon"></paper-icon-button>
 
-    <paper-toolbar class="drawer-toolbar">
+    <h4 condensed-title>Xitij 16</h4>
 
-      <!-- Logo Todo: Add Logo Image. -->
+  </app-toolbar>
 
-      <span style="font-family: Roboto, sans-serif">Xitij 16</span>
+</app-header>
 
-    </paper-toolbar>
+<!-- Pages -->
 
+<iron-pages selected="0" id="ironPages">
 
-    <!-- Side Menu -->
+  <!-- Home Todo: Add content. -->
 
-    <paper-menu id="paperMenu" selected="0">
+  <div>Home</div>
 
-      <paper-item>Home</paper-item>
-      <paper-item>Registration</paper-item>
-      <paper-item>Schedule</paper-item>
-      <paper-item>Events</paper-item>
-      <paper-item>Contact Us</paper-item>
+  <!-- Registration Todo: Add content. -->
 
-    </paper-menu>
+  <div>Registration</div>
 
-  </paper-header-panel>
+  <!-- Schedule Todo: Add content. -->
 
-  <!-- Main Content -->
+  <div class="vertical layout center">
 
-  <paper-header-panel main mode="waterfall-tall" class="flex">
+    <paper-tabs id="scheduleTabs" selected="0" no-slide>
+      <paper-tab>Day 1</paper-tab>
+      <paper-tab>Day 2</paper-tab>
+      <paper-tab>Day 3</paper-tab>
+    </paper-tabs>
 
-    <paper-toolbar class="main-toolbar">
-
-      <!-- Toggle Menu button -->
-
-      <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-
-      <!-- Logo Todo: Add Logo Image. -->
-
-      <span style="font-family: Roboto, sans-serif">Xitij 16</span>
-
-    </paper-toolbar>
-
-    <!-- Pages -->
-
-    <iron-pages selected="0" id="ironPages">
-
-      <!-- Home Todo: Add content. -->
-
-      <div>Home</div>
-
-      <!-- Registration Todo: Add content. -->
-
-      <div>Registration</div>
-
-      <!-- Schedule Todo: Add content. -->
-
-      <div class="vertical layout center">
-
-        <paper-tabs id="scheduleTabs" selected="0" no-slide>
-          <paper-tab>Day 1</paper-tab>
-          <paper-tab>Day 2</paper-tab>
-          <paper-tab>Day 3</paper-tab>
-        </paper-tabs>
-
-        <iron-pages id="schedulePages" selected="0">
-          <div>Day1</div>
-          <div>Day2</div>
-          <div>Day3</div>
-        </iron-pages>
-
-      </div>
-
-      <!-- Events -->
-
-      <div class="page">
-
-        <!-- Category wise Rulebooks. Todo : Add PDF links and appropriate icons. -->
-
-        <div class="layout horizontal around-justified wrap primary-text">
-
-          <paper-card image="./documents/dance.gif" class="event-card" heading="Music"></paper-card>
-
-          <paper-card image="./documents/dance.gif" class="event-card" heading="Dance"></paper-card>
-
-          <paper-card image="./documents/fineArts.jpg" class="event-card" heading="Literature"></paper-card>
-
-          <paper-card image="./documents/fineArts.jpg" class="event-card" heading="Theatre"></paper-card>
-
-          <paper-card image="./documents/fineArts.jpg" class="event-card" heading="Fine Arts"></paper-card>
-
-        </div>
-
-        <!-- Rulebook -->
-
-        <div class="layout vertical center rulebook">
-
-          <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
-            <paper-button raised class="primary-text">
-              <iron-icon icon="file-download"></iron-icon>
-              Download Rulebook
-            </paper-button>
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- Todo : Contact Us -->
-
-      <div>Contact Us</div>
-
+    <iron-pages id="schedulePages" selected="0">
+      <div>Day1</div>
+      <div>Day2</div>
+      <div>Day3</div>
     </iron-pages>
 
-  </paper-header-panel>
+  </div>
 
-</paper-drawer-panel>
+  <!-- Events -->
+
+  <div class="page">
+
+    <!-- Category wise Rulebooks. Todo : Add PDF links and appropriate icons. -->
+
+    <div class="layout horizontal around-justified wrap primary-text">
+
+      <paper-card image="./documents/dance.gif" class="eventCard" heading="Music"></paper-card>
+
+      <paper-card image="./documents/dance.gif" class="eventCard" heading="Dance"></paper-card>
+
+      <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Literature"></paper-card>
+
+      <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Theatre"></paper-card>
+
+      <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Fine Arts"></paper-card>
+
+    </div>
+
+    <!-- Rulebook -->
+
+    <div class="layout vertical center rulebook">
+
+      <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
+        <paper-button raised class="primary-text">
+          <iron-icon icon="file-download"></iron-icon>
+          Download Rulebook
+        </paper-button>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- Todo : Contact Us -->
+
+  <div>Contact Us</div>
+
+</iron-pages>
+
+<!-- Drawer -->
+
+<app-drawer swipe-open id="drawer">
+
+  <!-- Title -->
+
+  <app-header>
+
+    <app-toolbar>
+      Xitij 16
+    </app-toolbar>
+
+  </app-header>
+
+  <!-- Menu -->
+
+  <paper-menu id="paperMenu" selected="0">
+
+    <paper-item>Home</paper-item>
+    <paper-item>Registration</paper-item>
+    <paper-item>Schedule</paper-item>
+    <paper-item>Events</paper-item>
+    <paper-item>Contact Us</paper-item>
+
+  </paper-menu>
+
+</app-drawer>
 
 <script>
 
   var menu = document.getElementById('paperMenu'),
       page = document.getElementById('ironPages'),
-      drawer = document.getElementById('paperDrawerPanel'),
       scheduleTabs = document.getElementById('scheduleTabs'),
-      schedulePages = document.getElementById('schedulePages');
+      schedulePages = document.getElementById('schedulePages'),
+      drawer = document.getElementById('drawer'),
+      menuIcon = document.getElementById('menuIcon');
+
+  //  Toggle drawer
+
+  menuIcon.addEventListener('tap', function (event) {
+    drawer.toggle();
+  });
+
+  //  Select iron-page
 
   menu.addEventListener('iron-select', function (event) {
     page.select(event.target.selected);
-    drawer.closeDrawer();
+    drawer.close();
   });
+
+  //  Select paper-tab
 
   scheduleTabs.addEventListener('iron-select', function (event) {
     schedulePages.select(event.target.selected);
