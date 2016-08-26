@@ -40,17 +40,20 @@
       --page-margin: 20px 0;
     }
 
+    paper-icon-button {
+      --paper-icon-button-ink-color: white;
+      color: white;
+    }
+
+    .primary-text {
+      color: var(--primary-color);
+    }
+
     /* Links */
 
     a, a:active, a:visited {
       text-decoration: none;
       display: block;
-    }
-
-    /* Theme Font Setting */
-
-    .primary-text {
-      color: var(--primary-color);
     }
 
     /* Body */
@@ -79,7 +82,7 @@
       font-size: 15px;
     }
 
-    /*Drawer */
+    /* Drawer */
 
     app-drawer {
       --app-drawer-scrim-opacity: 0.8;
@@ -155,25 +158,21 @@
       margin: var(--event-card-margin);
     }
 
-    /* Media Queries */
+    /*!* Media Queries *!*/
 
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
       app-header {
         height: 108px;
+        background-size: contain;
       }
     }
 
-    @media (max-width: 639px) {
-      [main-title] {
-        margin-left: 50px;
-        font-size: 30px;
-      }
-    }
-
-    paper-icon-button {
-      --paper-icon-button-ink-color: white;
-      color: white;
-    }
+    /*@media (max-width: 639px) {*/
+    /*[main-title] {*/
+    /*margin-left: 50px;*/
+    /*font-size: 30px;*/
+    /*}*/
+    /*}*/
 
   </style>
 
@@ -233,13 +232,13 @@
 
     <div class="layout horizontal around-justified wrap primary-text">
 
-      <paper-card image="./documents/dance.gif" class="eventCard" heading="Music"></paper-card>
+      <paper-card image="./documents/music.jpg" class="eventCard" heading="Music"></paper-card>
 
       <paper-card image="./documents/dance.gif" class="eventCard" heading="Dance"></paper-card>
 
-      <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Literature"></paper-card>
+      <paper-card image="./documents/literature.jpg" class="eventCard" heading="Literature"></paper-card>
 
-      <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Theatre"></paper-card>
+      <paper-card image="./documents/theatre.jpg" class="eventCard" heading="Theatre"></paper-card>
 
       <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Fine Arts"></paper-card>
 
