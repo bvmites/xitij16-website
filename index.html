@@ -34,8 +34,8 @@
     /* Theme Settings */
 
     * {
-      --primary-color: var(--paper-deep-purple-900);
-      --secondary-color: var(--paper-red-200);
+      --primary-color: var(--paper-indigo-500);
+      --secondary-color: var(--paper-green-500);
       --background-color: white;
       --event-card-margin: 10px 0;
       --rulebook-button-margin: 15px 0;
@@ -101,10 +101,9 @@
       background-color: var(--primary-color);
     }
 
-    .drawer-toolbar img {
-      height: 50%;
-      width: 60%;
-      margin: auto;
+    .drawer-toolbar {
+      color: white;
+      text-align: center;
     }
 
     /* Menu */
@@ -156,6 +155,16 @@
       font-size: var(--sub-heading-size);
       color: var(--text-color);
       text-align: center;
+    }
+
+    .date {
+      font-size: var(--sub-heading-size);
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    xitij-counter {
+      margin: 30px;
     }
 
     /* Event Page */
@@ -234,6 +243,7 @@
       <div class="logo"><img src="documents/Images/gtuLogo.png" alt="gtu logo"></div>
 
       <div>
+        <div class="date">15th, 16th and 17th September</div>
         <div class="home-page-heading-text">6th GTU Zonal YouthFest (V.V.Nagar)</div>
         <div class="home-page-text">organized by</div>
         <div class="home-page-heading-text">Birla Vishvakarma Mahavidhyalaya</div>
@@ -247,9 +257,7 @@
 
     <!-- Counter -->
 
-    <div>
-      <xitij-counter></xitij-counter>
-    </div>
+    <xitij-counter></xitij-counter>
 
   </div>
 
@@ -335,7 +343,7 @@
   <app-header>
 
     <app-toolbar class="drawer-toolbar">
-      <img src="documents/Images/xitij16Logo.png" alt="Xitij'16">
+      Xitij'16
     </app-toolbar>
 
   </app-header>
