@@ -34,12 +34,15 @@
     /* Theme Settings */
 
     * {
-      --primary-color: var(--paper-deep-purple-400);
+      --primary-color: var(--paper-deep-purple-900);
       --secondary-color: var(--paper-red-200);
-      --background-color: var(--paper-deep-purple-50);
+      --background-color: white;
       --event-card-margin: 10px 0;
       --rulebook-button-margin: 15px 0;
-      --page-margin: 20px 0;
+      --page-margin: 30px 0;
+      --heading-size: 35px;
+      --sub-heading-size: 25px;
+      --text-color: var(--paper-blue-grey-800);
     }
 
     paper-icon-button {
@@ -135,6 +138,26 @@
       margin: var(--page-margin);
     }
 
+    /* Home Page */
+
+    .logo img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .home-page-heading-text {
+      font-size: var(--heading-size);
+      color: var(--text-color);
+      text-align: center;
+      line-height: 1.5em;
+    }
+
+    .home-page-text {
+      font-size: var(--sub-heading-size);
+      color: var(--text-color);
+      text-align: center;
+    }
+
     /* Event Page */
 
     .rulebook {
@@ -202,8 +225,32 @@
 
   <!-- Home -->
 
-  <div>
-    <xitij-counter></xitij-counter>
+  <div class="page">
+
+    <!-- Content -->
+
+    <div class="layout horizontal center-justified around-justified">
+
+      <div class="logo"><img src="documents/Images/gtuLogo.png" alt="gtu logo"></div>
+
+      <div>
+        <div class="home-page-heading-text">6th GTU Zonal YouthFest (V.V.Nagar)</div>
+        <div class="home-page-text">organized by</div>
+        <div class="home-page-heading-text">Birla Vishvakarma Mahavidhyalaya</div>
+        <div class="home-page-text">in association with</div>
+        <div class="home-page-heading-text">Charutar Vidya Mandal</div>
+      </div>
+
+      <div class="logo"><img src="documents/Images/bvmLogo.png" alt="bvm logo"></div>
+
+    </div>
+
+    <!-- Counter -->
+
+    <div>
+      <xitij-counter></xitij-counter>
+    </div>
+
   </div>
 
   <!-- Registration Todo: Add content. -->
