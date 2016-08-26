@@ -1,0 +1,52 @@
+<dom-module id="xitij-counter">
+
+  <template>
+
+    <style>
+      * {
+        font-family: Roboto, serif;
+      }
+    </style>
+
+    <div id="days">{{days}}</div>
+    <div id="hours">{{hours}}</div>
+    <div id="minutes">{{minutes}}</div>
+    <div id="seconds">{{seconds}}</div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'xitij-counter',
+      properties: {
+        date: {
+          type: String,
+          value: "15",
+          reflectToAttribute: true
+        },
+        month: {
+          type: String,
+          value: "9",
+          reflectToAttribute: true
+        },
+        year: {
+          type: String,
+          value: "2016",
+          reflectToAttribute: true
+        },
+      },
+      ready: function () {
+        this.eventDate = new Date(this.year, this.month - 1, this.date);
+        setInterval(this.tick.bind(this), 1000);
+      },
+      tick: function () {
+        var diff = new Date(this.eventDate - new Date());
+        console.log(this.days = diff.getDate());
+        console.log(this.hours = diff.getHours());
+        console.log(this.minutes = diff.getMinutes());
+        console.log(this.seconds = diff.getSeconds());
+      }
+    });
+  </script>
+
+</dom-module>

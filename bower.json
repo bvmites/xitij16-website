@@ -5,7 +5,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.7",
-    "iron-elements": "^1.0.10"
+    "iron-elements": "^1.0.10",
+    "app-layout": "PolymerElements/app-layout#^0.10.3"
   },
   "devDependencies": {
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
