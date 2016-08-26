@@ -34,7 +34,7 @@
     /* Theme Settings */
 
     * {
-      --primary-color: var(--paper-deep-purple-500);
+      --primary-color: var(--paper-deep-purple-400);
       --secondary-color: var(--paper-red-200);
       --background-color: var(--paper-deep-purple-50);
       --event-card-margin: 10px 0;
@@ -71,7 +71,7 @@
       height: 212px;
       background-color: var(--primary-color);
       --app-header-background-front-layer: {
-        background: url(documents/backgroundWithXITIJ16.jpg) no-repeat center;
+        background: url(documents/Images/headerBackground.jpg) no-repeat center;
         background-size: cover;
       };
     }
@@ -182,7 +182,7 @@
 
 <body class="fullbleed layout vertical">
 
-<!-- Header Todo: Put logo and background-image separately. And make the header sticky. -->
+<!-- Header -->
 
 <app-header condenses reveals effects="waterfall resize-title blend-background parallax-background">
 
@@ -200,7 +200,7 @@
 
 <iron-pages selected="0" id="ironPages">
 
-  <!-- Home Todo: Add content. -->
+  <!-- Home -->
 
   <div>
     <xitij-counter></xitij-counter>
@@ -232,19 +232,29 @@
 
   <div class="page">
 
-    <!-- Category wise Rulebooks. Todo : Add PDF links and appropriate icons. -->
+    <!-- Category wise Rulebooks -->
 
     <div class="layout horizontal around-justified wrap primary-text">
 
-      <paper-card image="./documents/music.jpg" class="eventCard" heading="Music"></paper-card>
+      <a href="documents/PDFs/Music.pdf" download>
+        <paper-card image="./documents/Images/music.jpg" class="eventCard" heading="Music"></paper-card>
+      </a>
 
-      <paper-card image="./documents/dance.jpg" class="eventCard" heading="Dance"></paper-card>
+      <a href="documents/PDFs/Dance.pdf" download>
+        <paper-card image="./documents/Images/dance.jpg" class="eventCard" heading="Dance"></paper-card>
+      </a>
 
-      <paper-card image="./documents/literature.jpg" class="eventCard" heading="Literature"></paper-card>
+      <a href="documents/PDFs/Literature.pdf" download>
+        <paper-card image="./documents/Images/literature.jpg" class="eventCard" heading="Literature"></paper-card>
+      </a>
 
-      <paper-card image="./documents/theatre.jpg" class="eventCard" heading="Theatre"></paper-card>
+      <a href="documents/PDFs/Theatre.pdf" download>
+        <paper-card image="./documents/Images/theatre.jpg" class="eventCard" heading="Theatre"></paper-card>
+      </a>
 
-      <paper-card image="./documents/fineArts.jpg" class="eventCard" heading="Fine Arts"></paper-card>
+      <a href="documents/PDFs/FineArts.pdf" download>
+        <paper-card image="./documents/Images/fineArts.jpg" class="eventCard" heading="Fine Arts"></paper-card>
+      </a>
 
     </div>
 
@@ -252,7 +262,7 @@
 
     <div class="layout vertical center rulebook">
 
-      <a href="documents/Xitij%2016%20Rulebook.pdf" download="true">
+      <a href="documents/PDFs/Xitij16Rulebook.pdf" download>
         <paper-button raised class="primary-text rulebook-button">
           <iron-icon icon="file-download"></iron-icon>
           Download Rulebook
@@ -263,7 +273,7 @@
 
   </div>
 
-  <!-- Todo : Contact Us -->
+  <!-- Contact Us. Todo: Add Content -->
 
   <div>Contact Us</div>
 
@@ -278,7 +288,7 @@
   <app-header>
 
     <app-toolbar class="drawer-toolbar">
-      <img src="documents/logo.png" alt="Xitij'16">
+      <img src="documents/Images/xitij16Logo.png" alt="Xitij'16">
     </app-toolbar>
 
   </app-header>
@@ -288,10 +298,10 @@
   <paper-menu id="paperMenu" selected="0">
 
     <paper-item>Home</paper-item>
-    <paper-item>Registration</paper-item>
-    <paper-item>Schedule</paper-item>
-    <paper-item>Events</paper-item>
-    <paper-item>Contact Us</paper-item>
+    <paper-item disabled>Registration</paper-item>
+    <paper-item disabled>Schedule</paper-item>
+    <paper-item>Rulebook</paper-item>
+    <paper-item disabled>Contact Us</paper-item>
 
   </paper-menu>
 
