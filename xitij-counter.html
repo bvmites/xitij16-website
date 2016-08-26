@@ -12,42 +12,64 @@
       }
 
       #days, #hours, #minutes, #seconds {
-        font-size: 120px;
+        font-size: 55px;
       }
 
-      .box {
-        border: 2px solid black;
+      .circle {
+        /*border: 2px solid black;*/
         margin: 10px;
         padding: 10px;
         transition: 1s ease;
       }
 
-      .box > *:nth-child(1) {
-        border-right: 2px solid black;
-        padding-right: 10px;
+      .circle > *:nth-child(1) {
+        color: white;
+        border-radius: 50%;
+        padding: 20px;
+        width: 1.2em;
+        text-align: center;
       }
 
-      .box > *:nth-child(2) {
+      .circle > *:nth-child(2) {
         padding-left: 10px;
+        color: var(--paper-blue-900);
+        font-size: 20px;
+      }
+
+      .circle:nth-child(1) > *:first-child {
+        background-color: var(--paper-red-500);
+      }
+
+      .circle:nth-child(2) > *:first-child {
+        background-color: var(--paper-green-500);
+      }
+
+      .circle:nth-child(3) > *:first-child {
+        background-color: var(--paper-orange-500);
+      }
+
+      .circle:nth-child(4) > *:first-child {
+        background-color: var(--paper-indigo-500)
+      ;
       }
 
     </style>
 
     <div class="layout horizontal center-justified">
 
-      <div class="layout horizontal center box">
+      <div class="layout horizontal center circle">
         <div id="days" class="flex-2">{{days}}</div>
         <div class="flex-1">Days</div>
       </div>
-      <div class="layout horizontal center box">
+      <div class="layout horizontal center circle">
         <div id="hours" class="flex-2">{{hours}}</div>
         <div class="flex-1">Hours</div>
       </div>
-      <div class="layout horizontal center box">
+      <div class="layout horizontal center circle">
         <div id="minutes" class="flex-2">{{minutes}}</div>
         <div class="flex-1">Minutes</div>
       </div>
-      <div class="layout horizontal center box">
+      <div class="layout horizontal center circle">
         <div id="seconds" class="flex-2">{{seconds}}</div>
         <div class="flex-1">Seconds</div>
       </div>
