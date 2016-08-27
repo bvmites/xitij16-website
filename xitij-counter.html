@@ -1,77 +1,106 @@
-<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="xitij-counter">
 
   <template>
 
-    <style include="iron-flex iron-positioning"></style>
-
     <style>
+
+      :host {
+        display: block;
+      }
+
       * {
         font-family: Roboto, serif;
       }
 
-      #days, #hours, #minutes, #seconds {
-        font-size: 55px;
+      #mainContainer {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
       }
 
-      .circle {
-        /*border: 2px solid black;*/
-        margin: 10px;
-        padding: 10px;
-        transition: 1s ease;
+      #mainContainer > * {
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
       }
 
-      .circle > *:nth-child(1) {
-        color: white;
-        border-radius: 50%;
-        padding: 20px;
-        width: 1.2em;
-        text-align: center;
-      }
-
-      .circle > *:nth-child(2) {
-        padding-left: 10px;
-        color: var(--paper-blue-900);
-        font-size: 20px;
-      }
-
-      .circle:nth-child(1) > *:first-child {
+      #daysValue {
         background-color: var(--paper-red-500);
       }
 
-      .circle:nth-child(2) > *:first-child {
+      #hoursValue {
         background-color: var(--paper-green-500);
       }
 
-      .circle:nth-child(3) > *:first-child {
+      #minutesValue {
         background-color: var(--paper-orange-500);
       }
 
-      .circle:nth-child(4) > *:first-child {
-        background-color: var(--paper-indigo-500)
-      ;
+      #secondsValue {
+        background-color: var(--paper-indigo-500);
+      }
+
+      .circle {
+        @apply(--layout-flex-2);
+        font-size: 55px;
+        border-radius: 50%;
+        color: white;
+        width: 1.2em;
+        padding: 0.35em;
+        margin: 0.2em;
+        text-align: center;
+      }
+
+      .text {
+        @apply(--layout-flex);
+        color: var(--primary-color);
+        font-size: 20px;
+        margin-right: 0.1em;
+      }
+
+      @media (max-width: 725px) {
+
+        .circle {
+          font-size: 30px;
+          @apply(--layout-flex-none);
+        }
+
+        #mainContainer {
+          @apply(--layout-vertical);
+          @apply(--layout-center);
+        }
+
+        #mainContainer > * {
+          width: 160px;
+        }
+
+        .text {
+          @apply(--layout-flex-none);
+        }
       }
 
     </style>
 
-    <div class="layout horizontal center-justified">
+    <div id="mainContainer">
 
-      <div class="layout horizontal center circle">
-        <div id="days" class="flex-2">{{days}}</div>
-        <div class="flex-1">Days</div>
+      <div id="daysContainer">
+        <div id="daysValue" class="circle">{{days}}</div>
+        <div id="daysText" class="text">Days</div>
       </div>
-      <div class="layout horizontal center circle">
-        <div id="hours" class="flex-2">{{hours}}</div>
-        <div class="flex-1">Hours</div>
+
+      <div id="hoursContainer">
+        <div id="hoursValue" class="circle">{{hours}}</div>
+        <div id="hoursText" class="text">Hours</div>
       </div>
-      <div class="layout horizontal center circle">
-        <div id="minutes" class="flex-2">{{minutes}}</div>
-        <div class="flex-1">Minutes</div>
+
+      <div id="minutesContainer">
+        <div id="minutesValue" class="circle">{{minutes}}</div>
+        <div id="minutesText" class="text">Minutes</div>
       </div>
-      <div class="layout horizontal center circle">
-        <div id="seconds" class="flex-2">{{seconds}}</div>
-        <div class="flex-1">Seconds</div>
+
+      <div id="secondsContainer">
+        <div id="secondsValue" class="circle">{{seconds}}</div>
+        <div id="secondsText" class="text">Seconds</div>
       </div>
 
     </div>
@@ -96,10 +125,11 @@
           type: String,
           value: "2016",
           reflectToAttribute: true
-        },
+        }
       },
       attached: function () {
         this.eventDate = new Date(this.year, this.month - 1, this.date);
+        this.tick();
         this.timer = setInterval(this.tick.bind(this), 1000);
       },
       detached: function () {
