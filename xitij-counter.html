@@ -58,6 +58,34 @@
         margin-right: 0.1em;
       }
 
+      /* Medium View */
+
+      @media (min-width: 600px) and (max-width: 800px) {
+        .circle {
+          font-size: 30px;
+          margin: 5px;
+          @apply(--layout-flex-none);
+        }
+
+        #mainContainer {
+          @apply(--layout-horizontal);
+          @apply(--layout-center-justified);
+        }
+
+        #mainContainer > * {
+          @apply(--layout-horizontal);
+          @apply(--layout-center);
+        }
+
+        .text {
+          font-size: 18px;
+          margin-right: 15px;
+          @apply(--layout-flex-none);
+        }
+      }
+
+      /* Small View */
+
       @media (max-width: 725px) {
 
         .circle {
