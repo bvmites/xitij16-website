@@ -170,18 +170,13 @@
       background-color: white;
     }
 
-    .eventCard {
+    .event-card {
       --paper-card-header-image: {
-        width: 250px;
-        height: 280px;
+        width: 225px;
+        height: 205px;
       };
-      --paper-card-header: {
-        @apply(--layout-vertical);
-      };
-      --paper-card-header-text: {
-        @apply(--layout-self-center);
-        color: var(--primary-color);
-      };
+      font-size: 25px;
+      text-align: center;
       margin: var(--event-card-margin);
     }
 
@@ -189,7 +184,7 @@
 
     .contact-card {
       --paper-card-header-color: var(--primary-color);
-      width: 250px;
+      width: 275px;
       margin: 0 20px 40px 20px;
     }
 
@@ -197,7 +192,7 @@
       color: var(--primary-color);
     }
 
-    /* Media Queries Todo : Make Website Responsive. */
+    /* Media Queries */
 
     @media (max-width: 600px) {
       app-header {
@@ -313,23 +308,33 @@
     <div class="layout horizontal around-justified wrap primary-text">
 
       <a href="documents/PDFs/Music.pdf" download>
-        <paper-card image="./documents/Images/music.jpg" class="eventCard" heading="Music"></paper-card>
+        <paper-card image="./documents/Images/music.png" class="event-card">
+          <div class=card-content>Music</div>
+        </paper-card>
       </a>
 
       <a href="documents/PDFs/Dance.pdf" download>
-        <paper-card image="./documents/Images/dance.jpg" class="eventCard" heading="Dance"></paper-card>
+        <paper-card image="./documents/Images/dance.png" class="event-card">
+          <div class="card-content">Dance</div>
+        </paper-card>
       </a>
 
       <a href="documents/PDFs/Literature.pdf" download>
-        <paper-card image="./documents/Images/literature.jpg" class="eventCard" heading="Literature"></paper-card>
+        <paper-card image="./documents/Images/literature.jpg" class="event-card">
+          <div class="card-content">Literature</div>
+        </paper-card>
       </a>
 
       <a href="documents/PDFs/Theatre.pdf" download>
-        <paper-card image="./documents/Images/theatre.jpg" class="eventCard" heading="Theatre"></paper-card>
+        <paper-card image="./documents/Images/theatre.jpg" class="event-card">
+          <div class="card-content">Theatre</div>
+        </paper-card>
       </a>
 
       <a href="documents/PDFs/FineArts.pdf" download>
-        <paper-card image="./documents/Images/fineArts.jpg" class="eventCard" heading="Fine Arts"></paper-card>
+        <paper-card image="./documents/Images/finearts.png" class="event-card">
+          <div class="card-content">Fine Arts</div>
+        </paper-card>
       </a>
 
     </div>
