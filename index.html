@@ -36,10 +36,10 @@
 
     * {
       --primary-color: var(--paper-indigo-500);
-      --secondary-color: var(--paper-green-500);
+      --secondary-color: var(--paper-green-a100);
       --background-color: white;
       --event-card-margin: 10px 0;
-      --rulebook-button-margin: 15px 0;
+      --rulebook-button-margin: 25px 0;
       --page-margin: 30px 0;
       --heading-size: 35px;
       --sub-heading-size: 25px;
@@ -162,22 +162,44 @@
 
     /* Event Page */
 
-    .rulebook {
+    .rulebook paper-button {
       margin: var(--rulebook-button-margin);
-    }
-
-    .rulebook-button {
-      background-color: white;
+      color: white;
+      background-color: var(--primary-color);
+      opacity: 0.8;
+      width: 260px;
     }
 
     .event-card {
       --paper-card-header-image: {
         width: 225px;
-        height: 205px;
+        height: 200px;
+        opacity: 0.8;
       };
       font-size: 25px;
       text-align: center;
       margin: var(--event-card-margin);
+      color: white;
+    }
+
+    .music-card {
+      background-color: var(--paper-red-500);
+    }
+
+    .dance-card {
+      background-color: var(--paper-pink-500);
+    }
+
+    .literature-card {
+      background-color: var(--paper-green-500);
+    }
+
+    .theatre-card {
+      background-color: var(--paper-blue-500);
+    }
+
+    .finearts-card {
+      background-color: var(--paper-deep-orange-500);
     }
 
     /* Contact Us Page */
@@ -308,31 +330,31 @@
     <div class="layout horizontal around-justified wrap primary-text">
 
       <a href="documents/PDFs/Music.pdf" download>
-        <paper-card image="./documents/Images/music.png" class="event-card">
+        <paper-card image="./documents/Images/music.png" class="event-card music-card">
           <div class=card-content>Music</div>
         </paper-card>
       </a>
 
       <a href="documents/PDFs/Dance.pdf" download>
-        <paper-card image="./documents/Images/dance.png" class="event-card">
+        <paper-card image="./documents/Images/dance.png" class="event-card dance-card">
           <div class="card-content">Dance</div>
         </paper-card>
       </a>
 
       <a href="documents/PDFs/Literature.pdf" download>
-        <paper-card image="./documents/Images/literature.jpg" class="event-card">
+        <paper-card image="./documents/Images/literature.jpg" class="event-card literature-card">
           <div class="card-content">Literature</div>
         </paper-card>
       </a>
 
       <a href="documents/PDFs/Theatre.pdf" download>
-        <paper-card image="./documents/Images/theatre.jpg" class="event-card">
+        <paper-card image="./documents/Images/theatre.jpg" class="event-card theatre-card">
           <div class="card-content">Theatre</div>
         </paper-card>
       </a>
 
       <a href="documents/PDFs/FineArts.pdf" download>
-        <paper-card image="./documents/Images/finearts.png" class="event-card">
+        <paper-card image="./documents/Images/finearts.png" class="event-card finearts-card">
           <div class="card-content">Fine Arts</div>
         </paper-card>
       </a>
@@ -344,7 +366,7 @@
     <div class="layout vertical center rulebook">
 
       <a href="documents/PDFs/Xitij16Rulebook.pdf" download>
-        <paper-button raised class="primary-text rulebook-button">
+        <paper-button raised class="primary-text">
           <iron-icon icon="file-download"></iron-icon>
           Download Rulebook
         </paper-button>
@@ -354,7 +376,7 @@
 
   </div>
 
-  <!-- Contact Us. Todo: Add Content -->
+  <!-- Contact Us -->
 
   <div class="page layout vertical center flex">
 
@@ -407,7 +429,7 @@
   <paper-menu id="paperMenu" selected="0">
 
     <paper-item>Home</paper-item>
-    <paper-item disabled>Registration</paper-item>
+    <paper-item>Registration</paper-item>
     <paper-item disabled>Schedule</paper-item>
     <paper-item>Rulebook</paper-item>
     <paper-item>Contact Us</paper-item>
