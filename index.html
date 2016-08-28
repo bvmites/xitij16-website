@@ -69,16 +69,34 @@
       background: url('documents/Images/background.png');
     }
 
+    .coming-soon {
+      color: var(--primary-color);
+      font-size: 50px;
+    }
+
     /* Header */
 
-    app-header {
-      height: 212px;
+    body > app-header {
       background: url(documents/Images/xitij-16-logo.svg) no-repeat center;
       background-size: 40% auto;
+      height: 212px;
     }
 
     #menuIcon {
       color: var(--primary-color);
+      display: none;
+    }
+
+    .menu-bar paper-button {
+      font-size: 1em;
+      color: var(--primary-color);
+      ink-color: var(--primary-color);
+    }
+
+    .menu-bar paper-button:active {
+      font-size: 1em;
+      color: var(--primary-color);
+      background-color: rgba(3, 3, 3, 0.1);
     }
 
     /* Drawer */
@@ -93,6 +111,7 @@
     #drawer app-header {
       height: 75px;
       background-color: var(--primary-color);
+      opacity: 0.9;
     }
 
     .drawer-toolbar {
@@ -228,7 +247,7 @@
     /* Medium View */
 
     @media (min-width: 600px) and (max-width: 1000px) {
-      app-header {
+      body > app-header {
         background-size: 60% auto;
       }
 
@@ -236,12 +255,21 @@
         width: 100px;
         height: 100px;
       }
+
+      .menu-bar paper-button {
+        display: none;
+      }
+
+      #menuIcon {
+        display: block;
+      }
+
     }
 
     /* Small View */
 
     @media (max-width: 600px) {
-      app-header {
+      body > app-header {
         height: 108px;
         background-size: 65% auto;
       }
@@ -262,12 +290,20 @@
         @apply(--layout-flex);
       }
 
+      .logo img {
+        display: none;
+      }
+
       xitij-counter {
         margin: 0;
       }
 
-      .hide-when-small {
+      .menu-bar paper-button {
         display: none;
+      }
+
+      #menuIcon {
+        display: block;
       }
 
     }
@@ -288,6 +324,18 @@
 
   </app-toolbar>
 
+  <app-toolbar>
+
+    <div class="menu-bar layout horizontal center-justified self-end flex">
+      <paper-button>Home</paper-button>
+      <paper-button>Registration</paper-button>
+      <paper-button>Schedule</paper-button>
+      <paper-button>Rulebook</paper-button>
+      <paper-button>Contact Us</paper-button>
+    </div>
+
+  </app-toolbar>
+
 </app-header>
 
 <!-- Pages -->
@@ -300,9 +348,9 @@
 
     <!-- Content -->
 
-    <div class="layout horizontal center around-justified home-content">
+    <div class="layout horizontal center-justified around-justified home-content">
 
-      <div class="logo hide-when-small"><img src="documents/Images/gtuLogo.png" alt="gtu logo"></div>
+      <div class="logo"><img src="documents/Images/gtuLogo.png" alt="gtu logo"></div>
 
       <div>
         <div class="date">15th, 16th and 17th September</div>
@@ -313,7 +361,7 @@
         <div class="home-page-heading-text">Charutar Vidya Mandal</div>
       </div>
 
-      <div class="logo hide-when-small"><img src="documents/Images/bvmLogo.png" alt="bvm logo"></div>
+      <div class="logo"><img src="documents/Images/bvmLogo.png" alt="bvm logo"></div>
 
     </div>
 
@@ -325,24 +373,30 @@
 
   <!-- Registration Todo: Add content. -->
 
-  <div>Registration</div>
+  <div class="page layout horizontal center-justified">
+    <div class="coming-soon">Coming Soon</div>
+  </div>
 
   <!-- Schedule Todo: Add content. -->
 
-  <div class="vertical layout center">
+  <!--<div class="vertical layout center">-->
 
-    <paper-tabs id="scheduleTabs" selected="0" no-slide>
-      <paper-tab>Day 1</paper-tab>
-      <paper-tab>Day 2</paper-tab>
-      <paper-tab>Day 3</paper-tab>
-    </paper-tabs>
+  <!--<paper-tabs id="scheduleTabs" selected="0" no-slide>-->
+  <!--<paper-tab>Day 1</paper-tab>-->
+  <!--<paper-tab>Day 2</paper-tab>-->
+  <!--<paper-tab>Day 3</paper-tab>-->
+  <!--</paper-tabs>-->
 
-    <iron-pages id="schedulePages" selected="0">
-      <div>Day1</div>
-      <div>Day2</div>
-      <div>Day3</div>
-    </iron-pages>
+  <!--<iron-pages id="schedulePages" selected="0">-->
+  <!--<div>Day1</div>-->
+  <!--<div>Day2</div>-->
+  <!--<div>Day3</div>-->
+  <!--</iron-pages>-->
 
+  <!--</div>-->
+
+  <div class="page layout horizontal center-justified">
+    <div class=" coming-soon">Coming Soon</div>
   </div>
 
   <!-- Events -->
@@ -351,7 +405,7 @@
 
     <!-- Category wise Rulebooks -->
 
-    <div class="layout horizontal around-justified wrap primary-text">
+    <div class="layout horizontal around-justified wrap coming-soon">
 
       <a href="documents/PDFs/Music.pdf" download>
         <paper-card image="./documents/Images/music.png" class="event-card music-card">
@@ -442,8 +496,8 @@
 
   <app-header>
 
-    <app-toolbar class="drawer-toolbar">
-      Xitij'16
+    <app-toolbar class="drawer-toolbar layout horizontal center-center">
+      <span>Xitij'16</span>
     </app-toolbar>
 
   </app-header>
@@ -454,7 +508,7 @@
 
     <paper-item>Home</paper-item>
     <paper-item>Registration</paper-item>
-    <paper-item disabled>Schedule</paper-item>
+    <paper-item>Schedule</paper-item>
     <paper-item>Rulebook</paper-item>
     <paper-item>Contact Us</paper-item>
 
