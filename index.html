@@ -44,6 +44,7 @@
       --heading-size: 30px;
       --sub-heading-size: 25px;
       --text-color: var(--paper-blue-grey-800);
+      --primary-text-color: var(--paper-purple-500);
     }
 
     paper-icon-button {
@@ -87,16 +88,20 @@
       display: none;
     }
 
-    .menu-bar paper-button {
-      font-size: 1em;
-      color: var(--primary-color);
-      ink-color: var(--primary-color);
+    #horizontal-menu paper-button {
+      font-size: 20px;
+      color: white;
+      ink-color: white;
     }
 
-    .menu-bar paper-button:active {
-      font-size: 1em;
-      color: var(--primary-color);
-      background-color: rgba(3, 3, 3, 0.1);
+    #horizontal-menu {
+      margin-top: 30px;
+      padding: 0;
+    }
+
+    app-toolbar > div {
+      background-color: var(--primary-color);
+      opacity: 0.5;
     }
 
     /* Drawer */
@@ -128,6 +133,7 @@
     #paperMenu paper-item {
       cursor: pointer;
       background-color: var(--background-color);
+      color: var(--text-color);
     }
 
     #paperMenu paper-item:not(.iron-selected):hover {
@@ -171,8 +177,8 @@
     }
 
     .date {
-      font-size: var(--sub-heading-size);
-      color: var(--primary-color);
+      font-size: var(--heading-size);
+      color: var(--primary-text-color);
       text-align: center;
     }
 
@@ -256,7 +262,7 @@
         height: 100px;
       }
 
-      .menu-bar paper-button {
+      #horizontal-menu paper-button {
         display: none;
       }
 
@@ -298,7 +304,7 @@
         margin: 0;
       }
 
-      .menu-bar paper-button {
+      #horizontal-menu paper-button {
         display: none;
       }
 
@@ -316,7 +322,7 @@
 
 <!-- Header -->
 
-<app-header condenses>
+<app-header>
 
   <app-toolbar>
 
@@ -324,9 +330,11 @@
 
   </app-toolbar>
 
-  <app-toolbar>
+  <app-toolbar></app-toolbar>
 
-    <div class="menu-bar layout horizontal center-justified self-end flex">
+  <app-toolbar id="horizontal-menu">
+
+    <div class="layout horizontal center-justified self-end flex">
       <paper-button>Home</paper-button>
       <paper-button>Registration</paper-button>
       <paper-button>Schedule</paper-button>
@@ -353,7 +361,9 @@
       <div class="logo"><img src="documents/Images/gtuLogo.png" alt="gtu logo"></div>
 
       <div>
-        <div class="date">15th, 16th and 17th September</div>
+        <strong>
+          <div class="date">15th, 16th and 17th September</div>
+        </strong>
         <div class="home-page-heading-text">6th GTU Zonal YouthFest (V.V.Nagar)</div>
         <div class="home-page-text">organized by</div>
         <div class="home-page-heading-text">Birla Vishvakarma Mahavidhyalaya</div>
@@ -523,7 +533,8 @@
       scheduleTabs = document.getElementById('scheduleTabs'),
       schedulePages = document.getElementById('schedulePages'),
       drawer = document.getElementById('drawer'),
-      menuIcon = document.getElementById('menuIcon');
+      menuIcon = document.getElementById('menuIcon'),
+      horizontalMenu = document.getElementById('horizontalMenu');
 
   //  Toggle drawer
 
@@ -543,6 +554,8 @@
   scheduleTabs.addEventListener('iron-select', function (event) {
     schedulePages.select(event.target.selected);
   });
+
+  //  Select iron-page according to horizontal menu
 
 </script>
 
