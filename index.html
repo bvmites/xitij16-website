@@ -73,11 +73,8 @@
 
     app-header {
       height: 212px;
-      /*background-color: white;*/
-      --app-header-background-front-layer: {
-        background: url(documents/Images/xitij-16-logo-blue-theme.svg) no-repeat center;
-        background-size: cover;
-      };
+      background: url(documents/Images/xitij-16-logo.svg) no-repeat center;
+      background-size: 50% auto;
     }
 
     #menuIcon {
@@ -160,6 +157,10 @@
       text-align: center;
     }
 
+    .home-content {
+      margin: 0 10px;
+    }
+
     xitij-counter {
       margin-top: 30px;
     }
@@ -199,7 +200,7 @@
     }
 
     .theatre-card {
-      background-color: var(--paper-blue-500);
+      background-color: var(--paper-light-blue-500);
     }
 
     .finearts-card {
@@ -218,12 +219,17 @@
       color: var(--primary-color);
     }
 
+    #map {
+      border: 1px solid var(--primary-color);
+    }
+
     /* Media Queries */
 
     @media (max-width: 600px) {
       app-header {
         height: 108px;
         width: 100%;
+        background-size: 65% auto;
       }
 
       .home-page-heading-text {
@@ -260,7 +266,7 @@
 
 <!-- Header -->
 
-<app-header condenses reveals effects="waterfall blend-background parallax-background">
+<app-header condenses>
 
   <app-toolbar>
 
@@ -280,7 +286,7 @@
 
     <!-- Content -->
 
-    <div class="layout horizontal center-justified around-justified">
+    <div class="layout horizontal center-justified around-justified home-content">
 
       <div class="logo hide-when-small"><img src="documents/Images/gtuLogo.png" alt="gtu logo"></div>
 
@@ -345,14 +351,8 @@
         </paper-card>
       </a>
 
-      <a href="documents/PDFs/Literature.pdf" download>
-        <paper-card image="./documents/Images/literature.jpg" class="event-card literature-card">
-          <div class="card-content">Literature</div>
-        </paper-card>
-      </a>
-
       <a href="documents/PDFs/Theatre.pdf" download>
-        <paper-card image="./documents/Images/theatre.jpg" class="event-card theatre-card">
+        <paper-card image="./documents/Images/theatre.png" class="event-card theatre-card">
           <div class="card-content">Theatre</div>
         </paper-card>
       </a>
@@ -360,6 +360,12 @@
       <a href="documents/PDFs/FineArts.pdf" download>
         <paper-card image="./documents/Images/finearts.png" class="event-card finearts-card">
           <div class="card-content">Fine Arts</div>
+        </paper-card>
+      </a>
+
+      <a href="documents/PDFs/Literature.pdf" download>
+        <paper-card image="./documents/Images/literature.jpg" class="event-card literature-card">
+          <div class="card-content">Literature</div>
         </paper-card>
       </a>
 
@@ -406,7 +412,7 @@
 
     <iframe
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBTPcgHobXljtUmjJmPM6vDDAFCxwbSi7E&origin=My+Location&destination=BVM,+Mota+Bazaar,+Vallabh+Vidya+Nagar,+Opp+Shastri+Maidan,+Anand,+Gujarat+388120"
-        height="500px" frameborder="0" style="border:0; width: 80%;" allowfullscreen>
+        height="500px" frameborder="0" style="width: 80%;" allowfullscreen id="map">
     </iframe>
 
   </div>
