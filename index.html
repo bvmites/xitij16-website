@@ -78,7 +78,7 @@
       font-size: 50px;
       padding: 0.3em;
       opacity: 0.5;
-      color:  var(--primary-color);
+      color: var(--primary-color);
     }
 
     /* Header */
@@ -258,15 +258,15 @@
       background-color: var(--paper-deep-orange-500);
     }
 
-    /* Contact Us Page */
+    /* About Us Page */
 
-    .contact-card {
+    .about-card {
       --paper-card-header-color: var(--primary-color);
       width: 275px;
       margin: 0 20px 40px 20px;
     }
 
-    .contact-card * {
+    .about-card * {
       color: var(--primary-color);
     }
 
@@ -276,7 +276,8 @@
 
     .footer {
       margin-top: 50px;
-      width: 100vw;
+      width: 100%;
+      padding: 0;
     }
 
     .footer div {
@@ -297,6 +298,7 @@
     /* Medium View */
 
     @media (min-width: 600px) and (max-width: 1000px) {
+
       body > app-header {
         background-size: 60% auto;
       }
@@ -319,6 +321,7 @@
     /* Small View */
 
     @media (max-width: 600px) {
+
       body > app-header {
         height: 108px;
         background-size: 70% auto;
@@ -360,6 +363,10 @@
         font-size: 17px;
       }
 
+      .footer div {
+        font-size: 15px;
+      }
+
     }
 
   </style>
@@ -387,7 +394,7 @@
       <paper-button data-index="1">Registration</paper-button>
       <paper-button data-index="2">Schedule</paper-button>
       <paper-button data-index="3">Rulebook</paper-button>
-      <paper-button data-index="4">Contact Us</paper-button>
+      <paper-button data-index="4">About Us</paper-button>
     </div>
 
   </app-toolbar>
@@ -459,7 +466,7 @@
         <!--<a href="#" target="_blank">here</a>.-->
       </div>
 
-      <div>For any queries go to the <a id="goToContactUs" href="#">Contact Us</a> page.</div>
+      <div>For any queries go to the <a id="goToAboutUs" href="#">About Us</a> page.</div>
 
     </paper-material>
 
@@ -493,7 +500,7 @@
 
     <!-- Category wise Rulebooks -->
 
-    <div class="layout horizontal around-justified wrap coming-soon">
+    <div class="layout horizontal around-justified wrap">
 
       <a href="documents/PDFs/Music.pdf" download>
         <paper-card image="./documents/Images/music.png" class="event-card music-card">
@@ -542,7 +549,7 @@
 
   </div>
 
-  <!-- Contact Us -->
+  <!-- About Us -->
 
   <div class="page layout vertical center flex">
 
@@ -550,14 +557,14 @@
 
     <div class="layout horizontal around-justified wrap">
 
-      <!--<paper-card heading="Prof. Bharat Patel" class="contact-card">-->
-      <!--<div class="card-actions">-->
-      <!--<paper-icon-button icon="communication:call"></paper-icon-button>-->
-      <!--<span>9426488696</span>-->
-      <!--</div>-->
-      <!--</paper-card>-->
+      <paper-card heading="Prof. Bharat Patel" class="about-card">
+        <div class="card-actions">
+          <!--<paper-icon-button icon="communication:call"></paper-icon-button>-->
+          <!--<span>9426488696</span>-->
+        </div>
+      </paper-card>
 
-      <paper-card heading="Prof. Amit Bhavsar" class="contact-card">
+      <paper-card heading="Prof. Amit Bhavsar" class="about-card">
         <div class="card-actions">
           <paper-icon-button icon="communication:call"></paper-icon-button>
           <span>9825754873</span>
@@ -613,7 +620,7 @@
     <paper-item>Registration</paper-item>
     <paper-item>Schedule</paper-item>
     <paper-item>Rulebook</paper-item>
-    <paper-item>Contact Us</paper-item>
+    <paper-item>About Us</paper-item>
 
   </paper-menu>
 
@@ -628,7 +635,7 @@
       drawer = document.getElementById('drawer'),
       menuIcon = document.getElementById('menuIcon'),
       horizontalMenuButtons = document.querySelectorAll('#horizontalMenu paper-button'),
-      goToContactUs = document.getElementById('goToContactUs');
+      goToAboutUs = document.getElementById('goToAboutUs');
 
   //  Toggle drawer
 
@@ -657,9 +664,9 @@
     });
   });
 
-  //  Select iron-page when click on Contact Us link
+  //  Select iron-page when click on About Us link
 
-  goToContactUs.addEventListener('click', function () {
+  goToAboutUs.addEventListener('click', function () {
     page.select(4);
   })
 
