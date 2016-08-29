@@ -91,13 +91,13 @@
       display: none;
     }
 
-    #horizontal-menu paper-button {
+    #horizontalMenu paper-button {
       font-size: var(--horizontal-menu-text-size);
       color: white;
       ink-color: white;
     }
 
-    #horizontal-menu {
+    #horizontalMenu {
       margin-top: 30px;
       padding: 0;
     }
@@ -285,7 +285,7 @@
         height: 100px;
       }
 
-      #horizontal-menu paper-button {
+      #horizontalMenu paper-button {
         display: none;
       }
 
@@ -315,7 +315,7 @@
       }
 
       .date {
-        font-size: 15px;
+        font-size: 20px;
         @apply(--layout-flex);
       }
 
@@ -327,7 +327,7 @@
         margin-top: 35px;
       }
 
-      #horizontal-menu paper-button {
+      #horizontalMenu paper-button {
         display: none;
       }
 
@@ -359,14 +359,14 @@
 
   <app-toolbar></app-toolbar>
 
-  <app-toolbar id="horizontal-menu">
+  <app-toolbar id="horizontalMenu">
 
     <div class="layout horizontal center-justified self-end flex">
-      <paper-button>Home</paper-button>
-      <paper-button>Registration</paper-button>
-      <paper-button>Schedule</paper-button>
-      <paper-button>Rulebook</paper-button>
-      <paper-button>Contact Us</paper-button>
+      <paper-button data-index="0">Home</paper-button>
+      <paper-button data-index="1">Registration</paper-button>
+      <paper-button data-index="2">Schedule</paper-button>
+      <paper-button data-index="3">Rulebook</paper-button>
+      <paper-button data-index="4">Contact Us</paper-button>
     </div>
 
   </app-toolbar>
@@ -438,7 +438,7 @@
         <!--<a href="#" target="_blank">here</a>.-->
       </div>
 
-      <div>For any queries go to the Contact Us page.</div>
+      <div>For any queries go to the <a id="goToContactUs" href="#">Contact Us</a> page.</div>
 
     </paper-material>
 
@@ -528,12 +528,13 @@
     <!-- Contact Details -->
 
     <div class="layout horizontal around-justified wrap">
-      <paper-card heading="Prof. Bharat Patel" class="contact-card">
-        <div class="card-actions">
-          <paper-icon-button icon="communication:call"></paper-icon-button>
-          <span>9426488696</span>
-        </div>
-      </paper-card>
+
+      <!--<paper-card heading="Prof. Bharat Patel" class="contact-card">-->
+      <!--<div class="card-actions">-->
+      <!--<paper-icon-button icon="communication:call"></paper-icon-button>-->
+      <!--<span>9426488696</span>-->
+      <!--</div>-->
+      <!--</paper-card>-->
 
       <paper-card heading="Prof. Amit Bhavsar" class="contact-card">
         <div class="card-actions">
@@ -541,6 +542,7 @@
           <span>9825754873</span>
         </div>
       </paper-card>
+
     </div>
 
     <!-- Map -->
@@ -548,9 +550,8 @@
     <paper-material elevation="4" id="map">
 
       <iframe
-          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBTPcgHobXljtUmjJmPM6vDDAFCxwbSi7E&origin=My+Location&destination=BVM,+Mota+Bazaar,+Vallabh+Vidya+Nagar,+Opp+Shastri+Maidan,+Anand,+Gujarat+388120"
-          height="500px" frameborder="0" style="width: 100%;" allowfullscreen>
-      </iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7025123642893!2d72.92147991443366!3d22.552814039381403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e74c03b7749%3A0xab364c66fd4834c!2sBVM!5e0!3m2!1sen!2sin!4v1472451699061"
+          height="500" frameborder="0" style="width:100%;" allowfullscreen></iframe>
 
     </paper-material>
 
@@ -593,7 +594,9 @@
       scheduleTabs = document.getElementById('scheduleTabs'),
       schedulePages = document.getElementById('schedulePages'),
       drawer = document.getElementById('drawer'),
-      menuIcon = document.getElementById('menuIcon');
+      menuIcon = document.getElementById('menuIcon'),
+      horizontalMenuButtons = document.querySelectorAll('#horizontalMenu paper-button'),
+      goToContactUs = document.getElementById('goToContactUs');
 
   //  Toggle drawer
 
@@ -615,6 +618,18 @@
   //  });
 
   //  Select iron-page according to horizontal menu
+
+  Array.prototype.slice.call(horizontalMenuButtons, 0).map(function (button) {
+    button.addEventListener('tap', function (event) {
+      page.select(event.target.getAttribute('data-index'));
+    });
+  });
+
+//  Select iron-page when click on Contact Us link
+
+  goToContactUs.addEventListener('click', function () {
+    page.select(4);
+  })
 
 </script>
 
