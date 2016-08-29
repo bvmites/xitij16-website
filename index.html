@@ -27,6 +27,7 @@
   <link rel="import" href="bower_components/iron-icons/communication-icons.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-card/paper-card.html">
+  <link rel="import" href="bower_components/paper-material/paper-material.html">
 
   <link rel="import" href="xitij-counter.html">
 
@@ -43,6 +44,8 @@
       --page-margin: 30px 0;
       --heading-size: 30px;
       --sub-heading-size: 25px;
+      --text-size: 20px;
+      --horizontal-menu-text-size: 19px;
       --text-color: var(--paper-blue-grey-800);
       --primary-text-color: var(--paper-purple-500);
     }
@@ -60,7 +63,7 @@
 
     a, a:active, a:visited {
       text-decoration: none;
-      display: block;
+      display: inline;
     }
 
     /* Body */
@@ -89,7 +92,7 @@
     }
 
     #horizontal-menu paper-button {
-      font-size: 20px;
+      font-size: var(--horizontal-menu-text-size);
       color: white;
       ink-color: white;
     }
@@ -178,7 +181,7 @@
 
     .date {
       font-size: var(--heading-size);
-      color: var(--primary-text-color);
+      color: var(--paper-teal-400);
       text-align: center;
     }
 
@@ -188,6 +191,26 @@
 
     xitij-counter {
       margin-top: 30px;
+    }
+
+    /* Registration */
+
+    .registration-content {
+      display: inline;
+      background-color: rgba(255, 255, 255, 0.6);
+      width: 80%;
+      font-size: var(--text-size);
+      padding: 0.8em;
+      color: var(--text-color);
+      text-align: center;
+    }
+
+    .registration-content div {
+      margin: 20px;
+    }
+
+    .registration-content a {
+      color: var(--primary-color);
     }
 
     /* Event Page */
@@ -202,7 +225,7 @@
 
     .event-card {
       --paper-card-header-image: {
-        width: 225px;
+        width: 240px;
         height: 200px;
         opacity: 0.8;
       };
@@ -245,7 +268,7 @@
     }
 
     #map {
-      border: 1px solid var(--primary-color);
+      width: 80%;
     }
 
     /* Media Queries */
@@ -277,7 +300,7 @@
     @media (max-width: 600px) {
       body > app-header {
         height: 108px;
-        background-size: 65% auto;
+        background-size: 70% auto;
       }
 
       .home-page-heading-text {
@@ -301,7 +324,7 @@
       }
 
       xitij-counter {
-        margin: 0;
+        margin-top: 35px;
       }
 
       #horizontal-menu paper-button {
@@ -310,6 +333,10 @@
 
       #menuIcon {
         display: block;
+      }
+
+      .registration-content {
+        font-size: 17px;
       }
 
     }
@@ -381,10 +408,40 @@
 
   </div>
 
-  <!-- Registration Todo: Add content. -->
+  <!-- Registration Todo: Put link of GTU forms. -->
 
   <div class="page layout horizontal center-justified">
-    <div class="coming-soon">Coming Soon</div>
+
+    <paper-material elevation="3" class="registration-content">
+
+      <div>All participating colleges will have to fill the downloadable forms, will be available soon.
+        <!--<a href="#" target="_blank">-->
+        <!--here.-->
+        <!--</a>-->
+      </div>
+
+      <div>It is mandatory to send forms at
+        <a href="mailto:xitij16@bvmengineering.ac.in" target="_blank">&nbsp;xitij16@bvmengineering.ac.in&nbsp;</a>
+        before 9th September, 2016 12:00 a.m.
+      </div>
+
+      <div>It is also mandatory to send the filled, signed forms in a sealed envelop at
+        <a target="_blank"
+           href="https://www.google.co.in/maps/place/BVM/@22.552814,72.9214799,17z/data=!3m1!4b1!4m5!3m4!1s0x395e4e74c03b7749:0xab364c66fd4834c!8m2!3d22.5528091!4d72.9236686">BVM
+          College </a>
+        before 9th September, 2016 12:00 a.m.
+      </div>
+
+      <div>The participating colleges are requested to bring the necessary documents of all the participants for
+        verification on 15th September, 2016. The list of documents required, will be available soon.
+        <!--over&nbsp;-->
+        <!--<a href="#" target="_blank">here</a>.-->
+      </div>
+
+      <div>For any queries go to the Contact Us page.</div>
+
+    </paper-material>
+
   </div>
 
   <!-- Schedule Todo: Add content. -->
@@ -409,7 +466,7 @@
     <div class=" coming-soon">Coming Soon</div>
   </div>
 
-  <!-- Events -->
+  <!-- Rulebook -->
 
   <div class="page">
 
@@ -468,7 +525,7 @@
 
   <div class="page layout vertical center flex">
 
-    <!-- Contact -->
+    <!-- Contact Details -->
 
     <div class="layout horizontal around-justified wrap">
       <paper-card heading="Prof. Bharat Patel" class="contact-card">
@@ -488,13 +545,16 @@
 
     <!-- Map -->
 
-    <iframe
-        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBTPcgHobXljtUmjJmPM6vDDAFCxwbSi7E&origin=My+Location&destination=BVM,+Mota+Bazaar,+Vallabh+Vidya+Nagar,+Opp+Shastri+Maidan,+Anand,+Gujarat+388120"
-        height="500px" frameborder="0" style="width: 80%;" allowfullscreen id="map">
-    </iframe>
+    <paper-material elevation="4" id="map">
+
+      <iframe
+          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBTPcgHobXljtUmjJmPM6vDDAFCxwbSi7E&origin=My+Location&destination=BVM,+Mota+Bazaar,+Vallabh+Vidya+Nagar,+Opp+Shastri+Maidan,+Anand,+Gujarat+388120"
+          height="500px" frameborder="0" style="width: 100%;" allowfullscreen>
+      </iframe>
+
+    </paper-material>
 
   </div>
-
 
 </iron-pages>
 
@@ -533,8 +593,7 @@
       scheduleTabs = document.getElementById('scheduleTabs'),
       schedulePages = document.getElementById('schedulePages'),
       drawer = document.getElementById('drawer'),
-      menuIcon = document.getElementById('menuIcon'),
-      horizontalMenu = document.getElementById('horizontalMenu');
+      menuIcon = document.getElementById('menuIcon');
 
   //  Toggle drawer
 
@@ -551,9 +610,9 @@
 
   //  Select paper-tab
 
-  scheduleTabs.addEventListener('iron-select', function (event) {
-    schedulePages.select(event.target.selected);
-  });
+  //  scheduleTabs.addEventListener('iron-select', function (event) {
+  //    schedulePages.select(event.target.selected);
+  //  });
 
   //  Select iron-page according to horizontal menu
 
