@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="manifest" href="/manifest.json">
-  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <link rel="import" href="bower_components/polymer/polymer.html">
 
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
@@ -17,7 +17,6 @@
   <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
   <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
   <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
-  <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
   <link rel="import" href="bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/iron-pages/iron-pages.html">
@@ -203,9 +202,8 @@
       background-color: rgba(255, 255, 255, 0.6);
       width: 80%;
       font-size: var(--text-size);
-      padding: 0.8em;
+      padding: 1em;
       color: var(--text-color);
-      text-align: center;
     }
 
     .registration-content div {
@@ -429,7 +427,7 @@
 
       <div>
         <strong>
-          <div class="date">19th, 20th and 21st September</div>
+          <div class="date">22nd, 23rd and 24th September</div>
         </strong>
         <div class="home-page-heading-text">6th GTU Zonal YouthFest (V.V.Nagar)</div>
         <div class="home-page-text">organized by</div>
@@ -448,37 +446,69 @@
 
   </div>
 
-  <!-- Registration Todo: Put link of GTU forms. -->
+  <!-- Registration page -->
 
   <div class="page layout horizontal center-justified">
 
     <paper-material elevation="3" class="registration-content">
 
-      <div>All participating colleges will have to fill the downloadable forms, which will be available soon.
-        <!--<a href="#" target="_blank">-->
-        <!--here.-->
-        <!--</a>-->
+      <h3>Announcement</h3>
+      <div>
+        <ul>
+          <li>
+            <a href="http://gtu.ac.in/uploads/2.%20Annexure%20I%20-%20Program%20of%20Youth%20Festival%202016-17.pdf"
+               download>
+              Annexure I - Program of Youth Festival
+            </a>
+          </li>
+          <li>
+            <a href="http://gtu.ac.in/uploads/6.%20Annexure%20V%20-%20AIU%20Rules.pdf" download>
+              Annexure V - AIU Rules
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div>It is mandatory to send forms at
-        <a href="mailto:xitij16@bvmengineering.ac.in" target="_blank">&nbsp;xitij16@bvmengineering.ac.in&nbsp;</a>
-        before 12th September, 2016 12:00 a.m.
+      <h3>Circulars</h3>
+
+      <div>All participating colleges will have to fill the downloadable forms given below.</div>
+
+      <div>
+        <ul>
+          <li><a
+              href="documents/PDFs/AnnexureII-SummaryFormoftheInstitute.doc">Annexure II - Summary Form of the
+            Institute</a>
+          </li>
+          <li><a
+              href="documents/PDFs/AnnexureIII-DetailEntryForm.doc">Annexure III - Detail Entry Form</a>
+          </li>
+          <li><a
+              href="documents/PDFs/AnnexureIV-ParticipationinSixEvents.doc">Annexure IV - Participation in Six Events
+          </a>
+          </li>
+        </ul>
       </div>
 
-      <div>It is also mandatory to send the filled, signed forms in a sealed envelop at
-        <a target="_blank"
-           href="https://www.google.co.in/maps/place/BVM/@22.552814,72.9214799,17z/data=!3m1!4b1!4m5!3m4!1s0x395e4e74c03b7749:0xab364c66fd4834c!8m2!3d22.5528091!4d72.9236686">BVM
-          College </a>
-        before 12th September, 2016 12:00 a.m.
+      <div>A meeting for cultural conveners of all participating colleges is scheduled as follows
+        <ul type="none">
+          <li><strong>Date: </strong>Friday, 16th September, 2016.</li>
+          <li><strong>Time: </strong>10:30 a.m.</li>
+          <li><strong>Venue: </strong>Conference Room, Nr. Principal Office, B-block, BVM.</li>
+        </ul>
       </div>
 
-      <div>The participating colleges are requested to bring the necessary documents of all the participants for
-        verification on 19th September, 2016. The list of documents required will be available soon.
-        <!--over&nbsp;-->
-        <!--<a href="#" target="_blank">here</a>.-->
-      </div>
+      <div>Meeting will be followed by Lunch.</div>
 
-      <div>For any queries go to the <a id="goToAboutUs" href="#">About Us</a> page.</div>
+      <h4>It is mandatory to send filled and signed forms
+        <wbr>
+        at
+        <a href="mailto:xitij16@bvmengineering.ac.in" target="_blank">xitij16@bvmengineering.ac.in</a>
+        before
+        <wbr>
+        15th September, 2016 06:00 p.m.
+      </h4>
+
+      <h4>For any queries go to the <a id="goToAboutUs" href="#">About Us</a> page.</h4>
 
     </paper-material>
 
@@ -593,7 +623,6 @@
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7025123642893!2d72.92147991443366!3d22.552814039381403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4e74c03b7749%3A0xab364c66fd4834c!2sBVM!5e0!3m2!1sen!2sin!4v1472451699061"
           height="500" frameborder="0" style="width:100%;" allowfullscreen>
       </iframe>
-
     </paper-material>
 
     <app-toolbar class="layout horizontal center-justified footer">
