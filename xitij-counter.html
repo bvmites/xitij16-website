@@ -155,20 +155,24 @@
           reflectToAttribute: true
         }
       },
+      ready: function () {
+        this.eventDateEpoch = new Date(this.year, this.month - 1, this.date).valueOf() / 1000;
+      },
       attached: function () {
-        this.eventDate = new Date(this.year, this.month - 1, this.date);
         this.tick();
         this.timer = setInterval(this.tick.bind(this), 1000);
       },
       detached: function () {
-        claerInterval(this.timer);
+        clearInterval(this.timer);
       },
       tick: function () {
-        var diff = new Date(this.eventDate - new Date());
-        this.days = diff.getDate();
-        this.hours = diff.getHours();
-        this.minutes = diff.getMinutes();
-        this.seconds = diff.getSeconds();
+        var diff = this.eventDateEpoch - Math.floor(Date.now() / 1000);
+        this.days = Math.floor(diff / (24 * 60 * 60));
+        diff = diff - (this.days * (24 * 60 * 60));
+        this.hours = Math.floor(diff / (60 * 60));
+        diff = diff - (this.hours * (60 * 60));
+        this.minutes = Math.floor(diff / 60);
+        this.seconds = diff % 60;
       }
     });
   </script>
