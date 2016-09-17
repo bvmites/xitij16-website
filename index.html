@@ -27,6 +27,8 @@
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-card/paper-card.html">
   <link rel="import" href="bower_components/paper-material/paper-material.html">
+  <link rel="import" href="bower_components/polymerfire/firebase-app.html">
+  <link rel="import" href="bower_components/polymerfire/firebase-document.html">
 
   <link rel="import" href="xitij-counter.html">
 
@@ -385,6 +387,14 @@
 
 <body class="fullbleed layout vertical">
 
+<!-- Firebase app -->
+
+<firebase-app api-key="AIzaSyA0yNwfIen_cpo8WthSwiOG_POibTlU2EY"
+              auth-domain="localhost"
+              database-url="https://xitij16-1bdbe.firebaseio.com"
+              name="xitij16">
+</firebase-app>
+
 <!-- Header -->
 
 <app-header>
@@ -440,6 +450,18 @@
 
     </div>
 
+    <template is="dom-bind">
+      <firebase-document
+          id="newsDoc"
+          app-name="xitij16"
+          path="/news"
+          data="{{news}}">
+      </firebase-document>
+      <template is="dom-repeat" items="{{news}}" as="news">
+        <!-- Todo: Add news UI. -->
+      </template>
+    </template>
+
     <!-- Counter -->
 
     <xitij-counter></xitij-counter>
@@ -473,7 +495,8 @@
             <li><strong>Date: </strong>Friday, 16th September, 2016.</li>
             <li><strong>Time: </strong>10:30 a.m.</li>
             <li><strong>Venue: </strong>Conference Room, Nr. Principal Office, B-block,
-              <a href="https://www.google.co.in/maps/place/BVM/@22.5528091,72.9214799,17z/data=!3m1!4b1!4m5!3m4!1s0x395e4e74c03b7749:0xab364c66fd4834c!8m2!3d22.5528091!4d72.9236686" target="_blank">
+              <a href="https://www.google.co.in/maps/place/BVM/@22.5528091,72.9214799,17z/data=!3m1!4b1!4m5!3m4!1s0x395e4e74c03b7749:0xab364c66fd4834c!8m2!3d22.5528091!4d72.9236686"
+                 target="_blank">
                 BVM</a>.
             </li>
           </ul>
