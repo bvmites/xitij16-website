@@ -29,6 +29,7 @@
   <link rel="import" href="bower_components/paper-material/paper-material.html">
   <link rel="import" href="bower_components/polymerfire/firebase-app.html">
   <link rel="import" href="bower_components/polymerfire/firebase-document.html">
+  <link rel="import" href="xitij-news.html">
 
   <link rel="import" href="xitij-counter.html">
 
@@ -65,6 +66,7 @@
     a, a:active, a:visited {
       text-decoration: none;
       display: inline;
+      color: var(--text-color);
     }
 
     /* Body */
@@ -72,14 +74,6 @@
     body {
       font-family: Roboto, serif;
       background: url('documents/Images/background.png');
-    }
-
-    .coming-soon {
-      background-color: white;
-      font-size: 50px;
-      padding: 0.3em;
-      opacity: 0.5;
-      color: var(--primary-color);
     }
 
     /* Header */
@@ -258,15 +252,15 @@
       background-color: var(--paper-deep-orange-500);
     }
 
-    /* About Us Page */
+    /* Contact Us Page */
 
-    .about-card {
+    .contact-card {
       --paper-card-header-color: var(--primary-color);
       max-width: 325px;
       margin: 0 20px 40px 20px;
     }
 
-    .about-card * {
+    .contact-card * {
       color: var(--primary-color);
     }
 
@@ -363,15 +357,15 @@
         font-size: 17px;
       }
 
-      .about-card {
+      .contact-card {
         width: 275px;
       }
 
-      .about-card paper-icon-button {
+      .contact-card paper-icon-button {
         display: none;
       }
 
-      .about-card span {
+      .contact-card span {
         line-height: 2em;
       }
 
@@ -411,10 +405,13 @@
 
     <div class="layout horizontal center-justified self-end flex">
       <paper-button data-index="0">Home</paper-button>
-      <paper-button data-index="1">Registration</paper-button>
-      <paper-button data-index="2">Schedule</paper-button>
+      <paper-button data-index="1">News</paper-button>
+      <paper-button data-index="2">Registration</paper-button>
+      <a href="documents/PDFs/ScheduleXITIJ.pdf" target="_blank">
+        <paper-button>Schedule</paper-button>
+      </a>
       <paper-button data-index="3">Rulebook</paper-button>
-      <paper-button data-index="4">About Us</paper-button>
+      <paper-button data-index="4">Contact Us</paper-button>
     </div>
 
   </app-toolbar>
@@ -450,21 +447,17 @@
 
     </div>
 
-    <template is="dom-bind">
-      <firebase-document
-          id="newsDoc"
-          app-name="xitij16"
-          path="/news"
-          data="{{news}}">
-      </firebase-document>
-      <template is="dom-repeat" items="{{news}}" as="news">
-        <!-- Todo: Add news UI. -->
-      </template>
-    </template>
-
     <!-- Counter -->
 
     <xitij-counter></xitij-counter>
+
+  </div>
+
+  <!-- News page -->
+
+  <div class="page layout vertical center">
+
+    <xitij-news></xitij-news>
 
   </div>
 
@@ -540,32 +533,10 @@
         15th September, 2016 06:00 p.m.
       </h4>
 
-      <h4>For any queries go to the <a id="goToAboutUs" href="#">About Us</a> page.</h4>
+      <h4>For any queries go to the <a id="goToContactUs" href="#">Contact Us</a> page.</h4>
 
     </paper-material>
 
-  </div>
-
-  <!-- Schedule Todo: Add content. -->
-
-  <!--<div class="vertical layout center">-->
-
-  <!--<paper-tabs id="scheduleTabs" selected="0" no-slide>-->
-  <!--<paper-tab>Day 1</paper-tab>-->
-  <!--<paper-tab>Day 2</paper-tab>-->
-  <!--<paper-tab>Day 3</paper-tab>-->
-  <!--</paper-tabs>-->
-
-  <!--<iron-pages id="schedulePages" selected="0">-->
-  <!--<div>Day1</div>-->
-  <!--<div>Day2</div>-->
-  <!--<div>Day3</div>-->
-  <!--</iron-pages>-->
-
-  <!--</div>-->
-
-  <div class="page layout horizontal center-center">
-    <paper-material class=" coming-soon" elevation="4">Coming Soon</paper-material>
   </div>
 
   <!-- Rulebook -->
@@ -623,7 +594,7 @@
 
   </div>
 
-  <!-- About Us -->
+  <!-- Contact Us -->
 
   <div class="page layout vertical center flex">
 
@@ -631,14 +602,14 @@
 
     <div class="layout horizontal around-justified wrap">
 
-      <paper-card heading="Prof. Bharat Patel" class="about-card">
+      <paper-card heading="Prof. Bharat Patel" class="contact-card">
         <div class="card-actions">
-          <paper-icon-button icon="communication:email"></paper-icon-button>
-          <span>xitij16@bvmengineering.ac.in</span>
+          <paper-icon-button icon="communication:call"></paper-icon-button>
+          <span>9426488696</span>
         </div>
       </paper-card>
 
-      <paper-card heading="Prof. Amit Bhavsar" class="about-card">
+      <paper-card heading="Prof. Amit Bhavsar" class="contact-card">
         <div class="card-actions">
           <paper-icon-button icon="communication:call"></paper-icon-button>
           <span>9825754873</span>
@@ -689,11 +660,12 @@
 
   <paper-menu id="paperMenu" selected="0">
 
-    <paper-item>Home</paper-item>
-    <paper-item>Registration</paper-item>
-    <paper-item>Schedule</paper-item>
-    <paper-item>Rulebook</paper-item>
-    <paper-item>About Us</paper-item>
+    <paper-item data-index="0">Home</paper-item>
+    <paper-item data-index="1">News</paper-item>
+    <paper-item data-index="2">Registration</paper-item>
+    <paper-item id="scheduleItem"><a href="documents/PDFs/ScheduleXITIJ.pdf" target="_blank">Schedule</a></paper-item>
+    <paper-item data-index="3">Rulebook</paper-item>
+    <paper-item data-index="4">Contact Us</paper-item>
 
   </paper-menu>
 
@@ -708,7 +680,8 @@
       drawer = document.getElementById('drawer'),
       menuIcon = document.getElementById('menuIcon'),
       horizontalMenuButtons = document.querySelectorAll('#horizontalMenu paper-button'),
-      goToAboutUs = document.getElementById('goToAboutUs');
+      goToContactUs = document.getElementById('goToContactUs');
+  scheduleItem = document.getElementById('scheduleItem');
 
   //  Toggle drawer
 
@@ -716,30 +689,34 @@
     drawer.toggle();
   });
 
-  //  Select iron-page
+  //  Select iron-page according to drawer menu
 
-  menu.addEventListener('iron-select', function (event) {
-    page.select(event.target.selected);
-    drawer.close();
+  Array.prototype.slice.call(menu.children[0].children, 0).filter(function (item) {
+    return item.hasAttribute('data-index');
+  }).forEach(function (item) {
+    item.addEventListener('tap', function (event) {
+      page.select(event.target.getAttribute('data-index'));
+      drawer.close();
+    });
   });
 
-  //  Select paper-tab
-
-  //  scheduleTabs.addEventListener('iron-select', function (event) {
-  //    schedulePages.select(event.target.selected);
-  //  });
+  scheduleItem.addEventListener('tap', function () {
+    drawer.close();
+  })
 
   //  Select iron-page according to horizontal menu
 
-  Array.prototype.slice.call(horizontalMenuButtons, 0).map(function (button) {
+  Array.prototype.slice.call(horizontalMenuButtons, 0).filter(function (button) {
+    return button.hasAttribute('data-index');
+  }).map(function (button) {
     button.addEventListener('tap', function (event) {
       page.select(event.target.getAttribute('data-index'));
     });
   });
 
-  //  Select iron-page when click on About Us link
+  //  Select iron-page when click on Contact Us link
 
-  goToAboutUs.addEventListener('click', function () {
+  goToContactUs.addEventListener('click', function () {
     page.select(4);
   })
 

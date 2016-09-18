@@ -1,0 +1,61 @@
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="xitij-news">
+  <template>
+
+    <style is="custom-style" include="iron-flex">
+      :host {
+        display: block;
+      }
+
+      .news-content {
+        background-color: rgba(255, 255, 255, 0.6);
+        width: 80%;
+        font-size: var(--text-size);
+        color: var(--text-color);
+        --paper-card-header-color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      /* Media queries */
+
+      @media (max-width: 600px) {
+        .news-content {
+          font-size: 17px;
+          line-height: 1.5em;
+        }
+      }
+
+    </style>
+
+    <firebase-document
+        id="newsDoc"
+        app-name="xitij16"
+        path="/news"
+        data="{{news}}">
+    </firebase-document>
+
+    <div class="layout vertical center">
+      <template is="dom-repeat" items="{{reverse(news)}}" as="news">
+        <paper-card heading="{{news.title}}" class="news-content">
+          <div class="card-content">
+            {{news.message}}
+          </div>
+        </paper-card>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'xitij-news',
+
+      reverse: function (news) {
+        if (news.reverse) return news.reverse();
+      }
+
+    });
+  </script>
+</dom-module>
