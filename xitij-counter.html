@@ -14,12 +14,12 @@
         font-family: Roboto, serif;
       }
 
-      #mainContainer {
+      #counterContainer {
         @apply(--layout-horizontal);
         @apply(--layout-center-justified);
       }
 
-      #mainContainer > * {
+      #counterContainer > * {
         @apply(--layout-horizontal);
         @apply(--layout-center);
       }
@@ -58,6 +58,13 @@
         margin-right: 0.1em;
       }
 
+      #greetingText {
+        @apply(--layout-vertical);
+        @apply(--layout-center);
+        color: var(--primary-color);
+        font-size: 60px;
+      }
+
       /* Medium View */
 
       @media (min-width: 600px) and (max-width: 800px) {
@@ -67,12 +74,12 @@
           @apply(--layout-flex-none);
         }
 
-        #mainContainer {
+        #counterContainer {
           @apply(--layout-horizontal);
           @apply(--layout-center-justified);
         }
 
-        #mainContainer > * {
+        #counterContainer > * {
           @apply(--layout-horizontal);
           @apply(--layout-center);
         }
@@ -93,12 +100,12 @@
           @apply(--layout-flex-none);
         }
 
-        #mainContainer {
+        #counterContainer {
           @apply(--layout-vertical);
           @apply(--layout-center);
         }
 
-        #mainContainer > * {
+        #counterContainer > * {
           width: 160px;
         }
 
@@ -109,7 +116,7 @@
 
     </style>
 
-    <div id="mainContainer">
+    <div hidden="{{finished}}" id="counterContainer">
 
       <div id="daysContainer">
         <div id="daysValue" class="circle">{{days}}</div>
@@ -133,6 +140,14 @@
 
     </div>
 
+    <firebase-document
+        id="greeting"
+        app-name="xitij16"
+        path="/greeting"
+        data="{{greeting}}"></firebase-document>
+
+    <div hidden="{{!finished}}" id="greetingText">{{greeting}}</div>
+
   </template>
 
   <script>
@@ -153,6 +168,12 @@
           type: String,
           value: "2016",
           reflectToAttribute: true
+        },
+        finished: {
+          type: Boolean,
+          value: false,
+          notify: true,
+          reflectToAttribute: true
         }
       },
       ready: function () {
@@ -167,6 +188,10 @@
       },
       tick: function () {
         var diff = this.eventDateEpoch - Math.floor(Date.now() / 1000);
+        if(diff <= 0) {
+          this.finished = true;
+          clearInterval(this.timer)
+        }
         this.days = Math.floor(diff / (24 * 60 * 60));
         diff = diff - (this.days * (24 * 60 * 60));
         this.hours = Math.floor(diff / (60 * 60));
