@@ -257,11 +257,19 @@
     .contact-card {
       --paper-card-header-color: var(--primary-color);
       max-width: 325px;
-      margin: 0 20px 40px 20px;
+      margin: 0 20px 20px 20px;
     }
 
     .contact-card * {
       color: var(--primary-color);
+    }
+
+    .contact-list paper-button {
+      margin: 20px 0 40px 0;
+      color: white;
+      background-color: var(--primary-color);
+      opacity: 0.8;
+      width: 260px;
     }
 
     #map {
@@ -285,6 +293,9 @@
 
     .footer a {
       color: white;
+      background-color: var(--primary-color);
+      opacity: 0.8;
+      width: 260px;
     }
 
     /* Media Queries */
@@ -600,24 +611,31 @@
 
     <!-- Contact Details -->
 
-    <div class="layout horizontal around-justified wrap">
+    <div>
+      <div class="layout horizontal around-justified wrap">
 
-      <paper-card heading="Prof. Bharat Patel" class="contact-card">
-        <div class="card-actions">
-          <paper-icon-button icon="communication:call"></paper-icon-button>
-          <span>9426488696</span>
-        </div>
-      </paper-card>
+        <paper-card heading="Prof. Bharat Patel" class="contact-card">
+          <div class="card-actions">
+            <paper-icon-button icon="communication:call"></paper-icon-button>
+            <span>9426488696</span>
+          </div>
+        </paper-card>
 
-      <paper-card heading="Prof. Amit Bhavsar" class="contact-card">
-        <div class="card-actions">
-          <paper-icon-button icon="communication:call"></paper-icon-button>
-          <span>9825754873</span>
-        </div>
-      </paper-card>
+        <paper-card heading="Prof. Amit Bhavsar" class="contact-card">
+          <div class="card-actions">
+            <paper-icon-button icon="communication:call"></paper-icon-button>
+            <span>9825754873</span>
+          </div>
+        </paper-card>
 
+      </div>
+
+      <div class="layout vertical center contact-list">
+        <a href="documents/PDFs/TeamBVM.pdf" target="_blank">
+          <paper-button>Category wise Contact List</paper-button>
+        </a>
+      </div>
     </div>
-
     <!-- Map -->
 
     <paper-material elevation="4" id="map">
