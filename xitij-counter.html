@@ -62,7 +62,7 @@
         @apply(--layout-vertical);
         @apply(--layout-center);
         color: var(--primary-color);
-        font-size: 60px;
+        font-size: 55px;
       }
 
       /* Medium View */
@@ -89,6 +89,10 @@
           margin-right: 15px;
           @apply(--layout-flex-none);
         }
+
+        #greetingText {
+          font-size: 50px;
+        }
       }
 
       /* Small View */
@@ -111,6 +115,10 @@
 
         .text {
           @apply(--layout-flex-none);
+        }
+
+        #greetingText {
+          font-size: 30px;
         }
       }
 
@@ -146,7 +154,7 @@
         path="/greeting"
         data="{{greeting}}"></firebase-document>
 
-    <div hidden="{{!finished}}" id="greetingText">{{greeting}}</div>
+    <div hidden="{{!finished}}" id="greetingText">{{isString(greeting)}}</div>
 
   </template>
 
@@ -188,7 +196,7 @@
       },
       tick: function () {
         var diff = this.eventDateEpoch - Math.floor(Date.now() / 1000);
-        if(diff <= 0) {
+        if (diff <= 0) {
           this.finished = true;
           clearInterval(this.timer)
         }
@@ -198,6 +206,10 @@
         diff = diff - (this.hours * (60 * 60));
         this.minutes = Math.floor(diff / 60);
         this.seconds = diff % 60;
+      },
+      isString: function (input) {
+        if (typeof input == "string") return input;
+        else return ""
       }
     });
   </script>
