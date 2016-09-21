@@ -191,6 +191,15 @@
       margin-top: 30px;
     }
 
+    /* News */
+
+    .news paper-button {
+      margin: var(--rulebook-button-margin);
+      color: white;
+      background-color: var(--primary-color);
+      opacity: 0.8;
+    }
+
     /* Registration */
 
     .registration-content {
@@ -466,7 +475,14 @@
 
   <!-- News page -->
 
-  <div class="page layout vertical center">
+  <div class="news page layout vertical center">
+
+    <a href="documents/PDFs/DebateAndElocutionTopics.pdf" download>
+      <paper-button raised class="primary-text">
+        <iron-icon icon="file-download"></iron-icon>
+        Download Debate & Elocution Topics
+      </paper-button>
+    </a>
 
     <xitij-news></xitij-news>
 
